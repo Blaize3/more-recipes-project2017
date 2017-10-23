@@ -1,0 +1,28 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+#searchIcon {
+    /*  line-height: 0px;*/
+    direction: flex;
+    align-items: center;
+    color: #01579b;
+}
+
+img {
+    width: 100%;
+}
+
+.votereview {
+    color: #bbdefb;
+}
+
+.votereview:hover {
+    color: #01579b;
+}

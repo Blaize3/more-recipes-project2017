@@ -1,0 +1,81 @@
+html {
+    overflow-y: scroll;
+}
+
+.v-scroll-bar {
+    height: 600px;
+    overflow-y: auto;
+}
+
+.profileImage {
+    width: 95%;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: solid thin #aaa;
+    border-radius: 50px;
+    background-color: #fff;
+}
+
+.accordion {
+    border-radius: 5px;
+    padding: 5px;
+}
+
+ul {
+    margin-bottom: 0px;
+}
+
+.head-main {
+    /*question*/
+    position: relative;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.head-main h4 {
+    font-size: 20px;
+    margin: 0;
+    color: #01579b;
+}
+
+.head-main .expand-more {
+    position: absolute;
+    right: 20px;
+    top: 0;
+    height: 100%;
+    display: flex;
+    color: #01579b;
+    align-items: center;
+    transition: 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+}
+
+.accordion li.open {
+    max-height: 200px;
+}
+
+.accordion li.open .head-main .expand-more {
+    transform: rotate(180deg);
+}
+
+.body-content-sub {
+    max-height: 0;
+    transition: 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+    overflow: hidden;
+}
+
+.logo-color {
+    color: #01579b;
+}
+
+.userIcon {
+    height: 150px;
+    width: 150px;
+    border: solid 5px #01579b;
+    border-radius: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
