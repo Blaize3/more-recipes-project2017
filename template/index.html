@@ -17,69 +17,106 @@
 <body>
     <header>
         <nav class="light-blue darken-4">
-            <div class="nav-wrapper">
+            <div class="nav-wrapper container">
                 <a href="#!" class="brand-logo">more-recipes</a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
+                    <!-- 0000000000000000000 -->
+                    <ul class="hide-on-med-and-down left">
+                        <li>
+                            <div class="center row">
+                                <div class="col s12 ">
+                                    <div class="center row hide-on-med-and-down">
+                                        <div class="row " id="topbarsearch">
+                                            <div class="input-field col s6 s12 white-text">
+                                                <i class="white-text material-icons prefix">search</i>
+                                                <input type="text" placeholder="search" id="autocomplete-input" class="autocomplete white-text">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </li>
+                    </ul>
+                    <!-- 0000000000000000000000000 -->
                     <li><a href="index.html">Home</a></li>
+                    <li><a class="modal-trigger" href="#modal1">About</a></li>
                     <li><a href="catalog1.html">Catalog</a></li>
-                    <li><a href="#">About</a></li>
                     <li><a class="waves-effect waves-light" href="login.html">Sign In</a></li>
                     <li><a class="waves-effect waves-light" href="signup.html">Sign Up</a></li>
                 </ul>
-                <ul class="side-nav" id="mobile-demo">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="catalog1.html">Catalog</a></li>
-                    <li><a href="#">About</a></li>
-                </ul>
-            </div>
-        </nav>
-        <nav class="white text-black">
-            <div class="nav-wrapper">
-                <form>
-                    <div class="input-field">
-                        <input class="center" type="search" id="search" placeholder="Search for recipes" required>
-                        <label for="search" class="label-icon"><i class="material-icons" id="searchIcon">search</i></label>
-                        <i class="material-icons">close</i>
+                <!-- AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA -->
+                <!-- <div id="modal1" class="modal">
+                    <div class="modal-content">
+                        <h3>more-recipes</h3>
+                        <p>
+                            <h4>&copy; 2017.</h4>></p>
+                        <p>Version 1.0.0</p>
                     </div>
-                </form>
-            </div>
+                    <div class="modal-footer">
+                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+                    </div>
+                </div>
+ -->
+                <div id="modal1" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-content">
+                            <h3>more-recipes</h3>
+                            <p>
+                                <h4>&copy; 2017.</h4>></p>
+                            <p>Version 1.0.0</p>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+                        </div>
+                    </div>
+                    <!-- AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA -->
+                    <ul class="side-nav" id="mobile-demo">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="catalog1.html">Catalog</a></li>
+                        <li><a class="waves-effect waves-light" href="login.html">Sign In</a></li>
+                        <li><a class="waves-effect waves-light" href="signup.html">Sign Up</a></li>
+                    </ul>
+                    <!-- 0000000000000000000000000000000000000000000000 -->
+
+                    <!-- 000000000000000000000000000000000000000000000000 -->
+                </div>
         </nav>
     </header>
     <main>
         <div class="container">
             <div class="slider">
-                <ul class="slides">
+                <ul class="slides text-weight-bold">
                     <li>
                         <img src="https://lorempixel.com/800/400/food/1">
                         <!-- random image -->
-                        <div class="caption center-align blue-text">
+                        <div class="caption center-align indigo-text">
                             <h3>FOOD IS ESSENTIAL TO LIFE</h3>
-                            <h5 class="light blue-text text-darken-4">therefore make it good.</h5>
+                            <h5 class="light-blue-text text-lighten-2">therefore make it good.</h5>
                         </div>
                     </li>
                     <li>
                         <img src="https://lorempixel.com/800/400/food/2">
                         <!-- random image -->
-                        <div class="caption left-align blue-text">
+                        <div class="caption left-align indigo-text">
                             <h3>EATING IS A NECESSITY</h3>
-                            <h5 class="light blue-text text-darken-4">but cooking is an art</h5>
+                            <h5 class="light-blue-text text-lighten-2">but cooking is an art</h5>
                         </div>
                     </li>
                     <li>
                         <img src="https://lorempixel.com/800/400/food/3">
                         <!-- random image -->
-                        <div class="caption right-align blue-text">
+                        <div class="caption right-align indigo-text">
                             <h3>FOOD IS THE INGREDIENTS</h3>
-                            <h5 class="light blue-text text-darken-4">that binds us together.</h5>
+                            <h5 class="light-blue-text text-lighten-2">that binds us together.</h5>
                         </div>
                     </li>
                     <li>
                         <img src="https://lorempixel.com/800/400/food/4">
                         <!-- random image -->
-                        <div class="caption center-align blue-text">
+                        <div class="caption center-align indigo-text">
                             <h3>A RECIPE HAS NO SOUL!</h3>
-                            <h5 class="light blue-text text-darken-4">you must bring soul to recipe</h5>
+                            <h5 class="light-blue-text text-lighten-2">you must bring soul to recipe</h5>
                         </div>
                     </li>
                 </ul>
@@ -92,87 +129,111 @@
             <br>
             <div class="row">
                 <div class="col s12 m4 l4">
-                    <!-- 00000000000000000000000000000000000000000000000 -->
-                    <div class="row">
-                        <div class="col s12 m12 l12">
-                            <div class="card">
-                                <div class="card-image">
-                                    <img src="images/burger.jpg">
-                                    <!-- <span class="card-title titleBackground">Card Title</span> -->
-                                </div>
-                                <div class="card-content">
-                                    <hr>Burger
-                                    <hr>
-                                    <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-                                </div>
-                                <div class="card-action">
-                                    <table>
-                                        <tr>
-                                            <td><span><i class="material-icons votereview">thumb_up</i></span></td>
-                                            <td><span><i class="material-icons votereview">comment</i></span></td>
-                                            <td><span><i class="material-icons votereview">thumb_down</i></span></td>
-                                        </tr>
-                                    </table>
+                    <!-- 000000000000000000000000000000000000000000000001 -->
+                    <a href="selectedrecipes.html">
+                        <div class="row">
+                            <div class="col s12 m12 l12">
+                                <div class="card card-border">
+                                    <div class="card-image">
+                                        <img src="images/burger.jpg">
+                                        <!-- <span class="card-title titleBackground">Card Title</span> -->
+                                    </div>
+                                    <div class="card-content">
+                                        <hr><span class="recipe-name-font indigo-text text-darken-4">Burger</span>
+                                        <hr>
+                                        <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                                    </div>
+                                    <div class="card-action">
+                                        <table>
+                                            <tr>
+                                                <td><span><i class="material-icons votereview">thumb_up</i></span>
+                                                    <div class="count">20</div>
+                                                </td>
+                                                <td><span><i class="material-icons votereview">comment</i></span>
+                                                    <div class="count">20</div>
+                                                </td>
+                                                <td><span><i class="material-icons votereview">thumb_down</i></span>
+                                                    <div class="count">20</div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                     <!-- 00000000000000000000000000000000000000000000000 -->
                 </div>
                 <div class="col s12 m4 l4">
                     <!-- 00000000000000000000000000000000000000000000000 -->
-                    <div class="row">
-                        <div class="col s12 m12 l12">
-                            <div class="card">
-                                <div class="card-image">
-                                    <img src="images/burger.jpg">
-                                    <!-- <span class="card-title titleBackground">Card Title</span> -->
-                                </div>
-                                <div class="card-content">
-                                    <hr>Burger
-                                    <hr>
-                                    <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-                                </div>
-                                <div class="card-action">
-                                    <table>
-                                        <tr>
-                                            <td><span><i class="material-icons votereview">thumb_up</i></span></td>
-                                            <td><span><i class="material-icons votereview">comment</i></span></td>
-                                            <td><span><i class="material-icons votereview">thumb_down</i></span></td>
-                                        </tr>
-                                    </table>
+                    <a href="selectedrecipes.html">
+                        <div class="row">
+                            <div class="col s12 m12 l12">
+                                <div class="card card-border">
+                                    <div class="card-image">
+                                        <img src="images/burger.jpg">
+                                        <!-- <span class="card-title titleBackground">Card Title</span> -->
+                                    </div>
+                                    <div class="card-content">
+                                        <hr><span class="recipe-name-font indigo-text text-darken-4">Burger</span>
+                                        <hr>
+                                        <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                                    </div>
+                                    <div class="card-action">
+                                        <table>
+                                            <tr>
+                                                <td><span><i class="material-icons votereview">thumb_up</i></span>
+                                                    <div class="count">20</div>
+                                                </td>
+                                                <td><span><i class="material-icons votereview">comment</i></span>
+                                                    <div class="count">20</div>
+                                                </td>
+                                                <td><span><i class="material-icons votereview">thumb_down</i></span>
+                                                    <div class="count">20</div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                     <!-- 00000000000000000000000000000000000000000000000 -->
                 </div>
                 <div class="col s12 m4 l4">
                     <!-- 00000000000000000000000000000000000000000000000 -->
-                    <div class="row">
-                        <div class="col s12 m12 l12">
-                            <div class="card">
-                                <div class="card-image">
-                                    <img src="images/burger.jpg">
-                                    <!-- <span class="card-title titleBackground">Card Title</span> -->
-                                </div>
-                                <div class="card-content">
-                                    <hr>Burger
-                                    <hr>
-                                    <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-                                </div>
-                                <div class="card-action">
-                                    <table>
-                                        <tr>
-                                            <td><span><i class="material-icons votereview">thumb_up</i></span></td>
-                                            <td><span><i class="material-icons votereview">comment</i></span></td>
-                                            <td><span><i class="material-icons votereview">thumb_down</i></span></td>
-                                        </tr>
-                                    </table>
+                    <a href="selectedrecipes.html">
+                        <div class="row">
+                            <div class="col s12 m12 l12">
+                                <div class="card card-border">
+                                    <div class="card-image">
+                                        <img src="images/burger.jpg">
+                                        <!-- <span class="card-title titleBackground">Card Title</span> -->
+                                    </div>
+                                    <div class="card-content">
+                                        <hr><span class="recipe-name-font indigo-text text-darken-4">Burger</span>
+                                        <hr>
+                                        <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                                    </div>
+                                    <div class="card-action">
+                                        <table>
+                                            <tr>
+                                                <td><span><i class="material-icons votereview">thumb_up</i></span>
+                                                    <div class="count">20</div>
+                                                </td>
+                                                <td><span><i class="material-icons votereview">comment</i></span>
+                                                    <div class="count">20</div>
+                                                </td>
+                                                <td><span><i class="material-icons votereview">thumb_down</i></span>
+                                                    <div class="count">20</div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                     <!-- 00000000000000000000000000000000000000000000000 -->
                 </div>
             </div>
@@ -182,87 +243,111 @@
             <div class="row">
                 <div class="col s12 m4 l4">
                     <!-- 00000000000000000000000000000000000000000000000 -->
-                    <div class="row">
-                        <div class="col s12 m12 l12">
-                            <div class="card">
-                                <div class="card-image">
-                                    <img src="images/burger.jpg">
-                                    <!-- <span class="card-title titleBackground">Card Title</span> -->
-                                </div>
-                                <div class="card-content">
-                                    <hr>Burger
-                                    <hr>
-                                    <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-                                </div>
-                                <div class="card-action">
-                                    <table>
-                                        <tr>
-                                            <td><span><i class="material-icons votereview">thumb_up</i></span></td>
-                                            <td><span><i class="material-icons votereview">comment</i></span></td>
-                                            <td><span><i class="material-icons votereview">thumb_down</i></span></td>
-                                        </tr>
-                                    </table>
+                    <a href="selectedrecipes.html">
+                        <div class="row">
+                            <div class="col s12 m12 l12">
+                                <div class="card card-border">
+                                    <div class="card-image">
+                                        <img src="images/burger.jpg">
+                                        <!-- <span class="card-title titleBackground">Card Title</span> -->
+                                    </div>
+                                    <div class="card-content">
+                                        <hr><span class="recipe-name-font indigo-text text-darken-4">Burger</span>
+                                        <hr>
+                                        <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                                    </div>
+                                    <div class="card-action">
+                                        <table>
+                                            <tr>
+                                                <td><span><i class="material-icons votereview">thumb_up</i></span>
+                                                    <div class="count">20</div>
+                                                </td>
+                                                <td><span><i class="material-icons votereview">comment</i></span>
+                                                    <div class="count">20</div>
+                                                </td>
+                                                <td><span><i class="material-icons votereview">thumb_down</i></span>
+                                                    <div class="count">20</div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                     <!-- 00000000000000000000000000000000000000000000000 -->
                 </div>
                 <div class="col s12 m4 l4">
                     <!-- 00000000000000000000000000000000000000000000000 -->
-                    <div class="row">
-                        <div class="col s12 m12 l12">
-                            <div class="card">
-                                <div class="card-image">
-                                    <img src="images/burger.jpg">
-                                    <!-- <span class="card-title titleBackground">Card Title</span> -->
-                                </div>
-                                <div class="card-content">
-                                    <hr>Burger
-                                    <hr>
-                                    <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-                                </div>
-                                <div class="card-action">
-                                    <table>
-                                        <tr>
-                                            <td><span><i class="material-icons votereview">thumb_up</i></span></td>
-                                            <td><span><i class="material-icons votereview">comment</i></span></td>
-                                            <td><span><i class="material-icons votereview">thumb_down</i></span></td>
-                                        </tr>
-                                    </table>
+                    <a href="selectedrecipes.html">
+                        <div class="row">
+                            <div class="col s12 m12 l12">
+                                <div class="card card-border">
+                                    <div class="card-image">
+                                        <img src="images/burger.jpg">
+                                        <!-- <span class="card-title titleBackground">Card Title</span> -->
+                                    </div>
+                                    <div class="card-content">
+                                        <hr><span class="recipe-name-font indigo-text text-darken-4">Burger</span>
+                                        <hr>
+                                        <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                                    </div>
+                                    <div class="card-action">
+                                        <table>
+                                            <tr>
+                                                <td><span><i class="material-icons votereview">thumb_up</i></span>
+                                                    <div class="count">20</div>
+                                                </td>
+                                                <td><span><i class="material-icons votereview">comment</i></span>
+                                                    <div class="count">20</div>
+                                                </td>
+                                                <td><span><i class="material-icons votereview">thumb_down</i></span>
+                                                    <div class="count">20</div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                     <!-- 00000000000000000000000000000000000000000000000 -->
                 </div>
                 <div class="col s12 m4 l4">
                     <!-- 00000000000000000000000000000000000000000000000 -->
-                    <div class="row">
-                        <div class="col s12 m12 l12">
-                            <div class="card">
-                                <div class="card-image">
-                                    <img src="images/burger.jpg">
-                                    <!-- <span class="card-title titleBackground">Card Title</span> -->
-                                </div>
-                                <div class="card-content">
-                                    <hr>Burger
-                                    <hr>
-                                    <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-                                </div>
-                                <div class="card-action">
-                                    <table>
-                                        <tr>
-                                            <td><span><i class="material-icons votereview">thumb_up</i></span></td>
-                                            <td><span><i class="material-icons votereview">comment</i></span></td>
-                                            <td><span><i class="material-icons votereview">thumb_down</i></span></td>
-                                        </tr>
-                                    </table>
+                    <a href="selectedrecipes.html">
+                        <div class="row">
+                            <div class="col s12 m12 l12">
+                                <div class="card card-border">
+                                    <div class="card-image">
+                                        <img src="images/burger.jpg">
+                                        <!-- <span class="card-title titleBackground">Card Title</span> -->
+                                    </div>
+                                    <div class="card-content">
+                                        <hr><span class="recipe-name-font indigo-text text-darken-4">Burger</span>
+                                        <hr>
+                                        <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                                    </div>
+                                    <div class="card-action">
+                                        <table>
+                                            <tr>
+                                                <td><span><i class="material-icons votereview">thumb_up</i></span>
+                                                    <div class="count">20</div>
+                                                </td>
+                                                <td><span><i class="material-icons votereview">comment</i></span>
+                                                    <div class="count">20</div>
+                                                </td>
+                                                <td><span><i class="material-icons votereview">thumb_down</i></span>
+                                                    <div class="count">20</div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- 00000000000000000000000000000000000000000000000 -->
+                    </a>
+                    <!-- 000000000000000000000000000000000000000000000006 -->
                 </div>
             </div>
             <br>

@@ -3,4 +3,5 @@ $(document).ready(function() {
     $('.slider').slider();
     $('.collapsible').collapsible();
     $('select').material_select();
+    $('.modal').modal();
 });

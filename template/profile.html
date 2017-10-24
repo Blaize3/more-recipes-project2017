@@ -17,31 +17,50 @@
 <body>
     <header>
         <nav class="light-blue darken-4">
-            <div class="nav-wrapper">
+            <div class="nav-wrapper container">
                 <a href="#!" class="brand-logo">more-recipes</a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
+                    <!-- 0000000000000000000 -->
+                    <ul class="hide-on-med-and-down left">
+                        <li>
+                            <div class="center row">
+                                <div class="col s12 ">
+                                    <div class="center row hide-on-med-and-down">
+                                        <div class="row " id="topbarsearch">
+                                            <div class="input-field col s6 s12 white-text">
+                                                <i class="white-text material-icons prefix">search</i>
+                                                <input type="text" placeholder="search" id="autocomplete-input" class="autocomplete red-text">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </li>
+                    </ul>
+                    <!-- 0000000000000000000000000 -->
                     <li><a href="index.html">Home</a></li>
+                    <li><a class="modal-trigger" href="#modal1">About</a></li>
                     <li><a href="catalog1.html">Catalog</a></li>
-                    <li><a href="#">About</a></li>
+                    <li><a class="waves-effect waves-light" href="#">Profile</a></li>
+                    <li><a class="waves-effect waves-light" href="#">My favorites</a></li>
                 </ul>
+                <!-- AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA -->
+                <div id="modal1" class="modal">
+                    <div class="modal-content">
+                        <h4>Modal Header</h4>
+                        <p>A bunch of text</p>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                    </div>
+                </div>
+                <!-- AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA -->
                 <ul class="side-nav" id="mobile-demo">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="catalog1.html">Catalog</a></li>
                     <li><a href="#">About</a></li>
+                    <li><a href="catalog1.html">Catalog</a></li>
                 </ul>
-            </div>
-        </nav>
-        <nav class="white text-black">
-            <div class="nav-wrapper">
-                <form>
-                    <div class="input-field">
-                        <input class="center" type="search" id="search" placeholder="Search for recipes" required>
-                        <label for="search" class="label-icon"><i class="material-icons" id="searchIcon">search</i></label>
-                        <i class="material-icons">close</i>
-                    </div>
-                </form>
-            </div>
+                </div>
         </nav>
     </header>
     <main>
@@ -75,31 +94,6 @@
                 <div class="col s12 m8  l8">
                     <div class="v-scroll-bar">
                         <ul class="collapsible" data-collapsible="accordion">
-                            <li>
-                                <div class="collapsible-header"><i class="material-icons logo-color">mode_edit</i>Edit Profile</div>
-                                <div class="collapsible-body">
-                                    <!-- 0000000000000000000000000000000000000000000000000 -->
-                                    <div class="content-holder">
-                                        <img src="images/talia.jpg" alt="User Picture" class="userIcon"><br>
-                                        <a class="waves-effect waves-light btn blue-grey">Upload profile image</a>
-                                        <div class="row">
-                                            <form>
-                                                <br>
-                                                <div>
-                                                    <h4>Update information</h4>
-                                                </div>
-                                                <div class="container-layout">
-                                                    <input type="text" name="firstname" id="firstname" placeholder="First Name"><br>
-                                                    <input type="text" name="othernames" id="othernames" placeholder="Other Name(s)"><br>
-                                                    <input type="text" name="lastname" id="lastname" placeholder="Last Name"><br>
-                                                    <a class="waves-effect waves-light btn blue-grey">Update</a>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <!-- 0000000000000000000000000000000000000000000000 -->
-                                </div>
-                            </li>
                             <li>
                                 <div class="collapsible-header"><i class="material-icons logo-color">add_circle</i>Add recipe</div>
                                 <div class="collapsible-body">
@@ -182,131 +176,7 @@
                                     <!-- 0000000000000000000000000000000000000000000000000 -->
                                 </div>
                             </li>
-                            <li>
-                                <div class="collapsible-header"><i class="material-icons logo-color">stars</i>View top recipes</div>
-                                <div class="collapsible-body">
-                                    <div>
-                                        <h4>Top Recipes</h4>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col s12 m6 l6">
-                                            <!-- 00000000000000000000000000000000000000000000000 -->
-                                            <div class="row">
-                                                <div class="col s12 m12 l12">
-                                                    <div class="card">
-                                                        <div class="card-image">
-                                                            <img src="images/burger.jpg">
-                                                            <span class="card-title">Card Title</span>
-                                                        </div>
-                                                        <div class="card-content">
-                                                            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- 00000000000000000000000000000000000000000000000 -->
-                                        </div>
-                                        <div class="col s12 m6 l6">
-                                            <!-- 00000000000000000000000000000000000000000000000 -->
-                                            <div class="row">
-                                                <div class="col s12 m12 l12">
-                                                    <div class="card">
-                                                        <div class="card-image">
-                                                            <img src="images/burger.jpg">
-                                                            <span class="card-title">Card Title</span>
-                                                        </div>
-                                                        <div class="card-content">
-                                                            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- 00000000000000000000000000000000000000000000000 -->
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col s12 m6 l6">
-                                            <!-- 00000000000000000000000000000000000000000000000 -->
-                                            <div class="row">
-                                                <div class="col s12 m12 l12">
-                                                    <div class="card">
-                                                        <div class="card-image">
-                                                            <img src="images/burger.jpg">
-                                                            <span class="card-title">Card Title</span>
-                                                        </div>
-                                                        <div class="card-content">
-                                                            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- 00000000000000000000000000000000000000000000000 -->
-                                        </div>
-                                        <div class="col s12 m6 l6">
-                                            <!-- 00000000000000000000000000000000000000000000000 -->
-                                            <div class="row">
-                                                <div class="col s12 m12 l12">
-                                                    <div class="card">
-                                                        <div class="card-image">
-                                                            <img src="images/burger.jpg">
-                                                            <span class="card-title">Card Title</span>
-                                                        </div>
-                                                        <div class="card-content">
-                                                            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- 00000000000000000000000000000000000000000000000 -->
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="collapsible-header"><i class="material-icons logo-color">star_rate</i>My favorites</div>
-                                <div class="collapsible-body">
-                                    <div>
-                                        <h4>My Favorite Recipes</h4>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col s12 m6 l6">
-                                            <!-- 00000000000000000000000000000000000000000000000 -->
-                                            <div class="row">
-                                                <div class="col s12 m12 l12">
-                                                    <div class="card">
-                                                        <div class="card-image">
-                                                            <img src="images/burger.jpg">
-                                                            <span class="card-title">Card Title</span>
-                                                        </div>
-                                                        <div class="card-content">
-                                                            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- 00000000000000000000000000000000000000000000000 -->
-                                        </div>
-                                        <div class="col s12 m6 l6">
-                                            <!-- 00000000000000000000000000000000000000000000000 -->
-                                            <div class="row">
-                                                <div class="col s12 m12 l12">
-                                                    <div class="card">
-                                                        <div class="card-image">
-                                                            <img src="images/burger.jpg">
-                                                            <span class="card-title">Card Title</span>
-                                                        </div>
-                                                        <div class="card-content">
-                                                            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- 00000000000000000000000000000000000000000000000 -->
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
+
                     </div>
                 </div>
             </div>

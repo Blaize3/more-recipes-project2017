@@ -17,26 +17,16 @@
 <body>
     <header>
         <nav class="light-blue darken-4">
-            <div class="nav-wrapper">
-                <a href="#!" class="brand-logo center">
-                    <div class="">more-recipes</div>
-                </a>
-                <!-- <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-                        <ul class="right hide-on-med-and-down" id="comp-menu">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Catalog</a></li>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#"><i class="material-icons" id="search-icon">search</i></a></li>
-                        </ul>
-                        <div class="right">
-                            <form>
-                                <div class="input-field" id="search-div" style="display:none">
-                                    <input type="search" id="search-txt" />
-                                    <label for="search-txt">Search</label>
-                                    <i class="material-icons" id="close-icon">close</i>
-                                </div>
-                            </form>
-                        </div> -->
+            <div class="nav-wrapper container">
+                <a href="#!" class="brand-logo">more-recipes</a>
+                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="index.html">Home</a></li>
+                </ul>
+                <ul class="side-nav" id="mobile-demo">
+                    <li><a href="index.html">Home</a></li>
+
+                </ul>
             </div>
         </nav>
     </header>
@@ -49,15 +39,48 @@
                         <br /><br />
                         <h3>Sign In</h3>
                         <form action="#" class="form-input-controls">
-                            <input type="email" class="input-controls" placeholder="Emails" name="email" id="email" /> <br />
+                            <input type="email" class="input-controls" placeholder="Email" name="email" id="email" /> <br />
                             <input type="password" class="input-controls" placeholder="Password" name="password" id="password" /> <br />
-                            <a class="right" href="resetpassword.html">Forgetten password?</a><br/>
+                            <!-- <a class="waves-effect waves-light modal-trigger" href="#modal1">Forgotten password?</a> -->
+                            <a class="modal-trigger right" href="#modal1">Forgotten password?</a><br/>
+                            <!-- AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA -->
+                            <div id="modal1" class="modal">
+                                <div class="modal-content">
+                                    <div class="bord">
+                                        <br />
+                                        <br /><br /><br />
+                                        <h3>Reset Account Password</h3>
+                                        <br />
+                                        <form action="#" class="form-input-controls">
+                                            <input type="text" class="input-controls" placeholder="Email" name="email" id="email" /> <br />
+                                            <p></p>
+                                            <a class="waves-effect waves-light btn  btn-large light-blue darken-4">Reset Password<i class="material-icons right">send</i></a><br><br>
+                                        </form>
+                                    </div>
+                                </div>
+                                <!-- <div class="modal-footer">
+                                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                                </div> -->
+                            </div>
+                            <!-- AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA -->
+                            <!-- <a class="modal-trigger" href="#modal2">Forgotten password?</a><br/> -->
                             <p></p>
                             <a class="waves-effect waves-light btn  btn-large light-blue darken-4" href="profile.html">Sign In<i class="material-icons right">send</i></a><br><br>
                             <a class="waves-effect waves-teal btn-flat" href="signup.html"><i class="material-icons right">reply</i>sign up</a>
                         </form>
                     </div>
                 </div>
+                <!-- AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA -->
+                <div id="modal1" class="modal">
+                    <div class="modal-content">
+                        <h4>Modal Header</h4>
+                        <p>A bunch of text</p>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                    </div>
+                </div>
+                <!-- AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA -->
                 <div class="col s12 m2 l3 hide-on-small-only"></div>
             </div>
         </div>
@@ -73,6 +96,9 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script src="javascript/indexjs.js"></script>
+    <script>
+        $('.modal').modal();
+    </script>
 </body>
 
 </html>
