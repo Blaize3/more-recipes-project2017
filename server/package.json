@@ -4,11 +4,13 @@
     "description": "more-recipe backend and API implentation",
     "main": "app.js",
     "scripts": {
-        "build": "babel src -d dist"
+        "build": "babel ./bin -d dist"
     },
     "scripts": {
-        "build": "babel --preset es2015 src -d dist",
-        "start:dev": "nodemon ./bin/www",
+        "build": "babel --preset es2015 ./bin -d dist/bin",
+        "build:app": "babel --preset es2015 src -d dist",
+        "execute:server": "nodemon ./dist/bin/www.js",
+        "start:dev": "npm run build && npm run build:app && npm run execute:server",
         "test": "mocha --require babel-polyfill --compilers js:babel-register test/test.js"
     },
     "keywords": [],
