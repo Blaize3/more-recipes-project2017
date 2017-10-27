@@ -41,6 +41,14 @@ class HandleRecipeRequest {
             Details: Recipes[_recipeId]
         });
     }
+
+    //3 API route handler that allows a user delete a recipe
+    static deleteRecipe(request, response) {
+        Recipes.pop(request.params.recipeId);
+        response.status(200).send({
+            message: 'Recipe was deleted successfully'
+        })
+    }
 }
 
 export default HandleRecipeRequest;
