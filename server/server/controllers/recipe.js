@@ -7,22 +7,18 @@ class HandleRecipeRequest {
     static addRecipe(request, response) {
         const recipeId = (Recipes.length <= 0 ? 0 : Recipes.length);
         const recipeObject = {
-            id: recipeId,
+            id: request.body.id,
             name: request.body.name,
             origin: request.body.origin,
             description: request.body.description,
             ingredients: request.body.ingredients,
             instructions: request.body.instructions,
-            reviews: request.body.reviews,
-            reviewCount: request.body.reviewCount,
-            voteCount: request.body.voteCount
+            upVotes: request.body.reviews,
+            downVotes: request.body.reviewCount,
         };
 
         Recipes.push(recipeObject);
-        response.status(200).send({
-            message: 'Recipe was successfully added',
-            Details: Recipes[Recipes.length - 1]
-        });
+        response.status(200).send({ message: "Recipe was created" });
     }
 
     static modifyRecipe(request, response) {
@@ -33,12 +29,11 @@ class HandleRecipeRequest {
         Recipes[_recipeId].description = request.body.description;
         Recipes[_recipeId].ingredients = request.body.ingredients;
         Recipes[_recipeId].instructions = request.body.instructions;
-        Recipes[_recipeId].upVotes = request.body.reviewCount;
-        Recipes[_recipeId].downVotes = request.body.reviewCount;
+        Recipes[_recipeId].upVotes = request.body.upVotes;
+        Recipes[_recipeId].downVotes = request.body.downVotes;
 
         response.status(200).send({
-            message: "Update was successful",
-            Details: Recipes[_recipeId]
+            message: "Update was successful"
         });
     }
 
