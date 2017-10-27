@@ -1,6 +1,6 @@
 /*eslint-disable*/
 import Recipes from '../models/recipe';
-// import Review from '../models/review';
+import Review from '../models/review';
 
 class HandleRecipeRequest {
     // 1 API route handler that allows a user to deiete a recipe
@@ -54,6 +54,23 @@ class HandleRecipeRequest {
     static getAllRecipes(request, response) {
         response.status(200).send(Recipes);
     }
+
+    //5 API route handler that allows a user post a review for recipe
+    static postAReview(request, response) {
+        const _recipeId = request.params.recipeId;
+        let reviewId = (Recipes.length <= 0 ? 0 : Recipes.length);
+        const reviewObject = {
+            id: reviewId,
+            recipeId: _recipeId,
+            review: request.body.review
+        }
+
+        Review.push(reviewObject);
+        response.status(200).send({
+            message: "Review was Added successfully"
+        });
+    }
+
 }
 
 export default HandleRecipeRequest;
