@@ -21,60 +21,60 @@
                 <a href="#!" class="brand-logo">more-recipes</a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
-                    <!-- 0000000000000000000 -->
-                    <ul class="hide-on-med-and-down left">
-                        <li>
-                            <div class="center row">
-                                <div class="col s12 ">
-                                    <div class="center row hide-on-med-and-down">
-                                        <div class="row " id="topbarsearch">
-                                            <div class="input-field col s6 s12 white-text">
-                                                <i class="white-text material-icons prefix">search</i>
-                                                <input type="text" placeholder="search" id="autocomplete-input" class="autocomplete red-text">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                        </li>
-                    </ul>
-                    <!-- 0000000000000000000000000 -->
                     <li><a href="index.html">Home</a></li>
                     <li><a class="modal-trigger" href="#modal1">About</a></li>
                     <li><a href="catalog1.html">Catalog</a></li>
-                    <li><a class="waves-effect waves-light" href="#">Profile</a></li>
-                    <li><a class="waves-effect waves-light" href="#">My favorites</a></li>
+                    <li><a class="waves-effect waves-light" href="favorite.html">My favorites</a></li>
                 </ul>
                 <!-- AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA -->
                 <div id="modal1" class="modal">
-                    <div class="modal-content">
-                        <h4>Modal Header</h4>
-                        <p>A bunch of text</p>
+                    <div class="modal-content black-text center">
+                          <br><br>
+                            <h3>more-recipes</h3>
+                            <p>
+                                <h4>&copy; 2017.</h4></p>
+                            <p>Version 1.0.0</p>
                     </div>
-                    <div class="modal-footer">
-                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-                    </div>
-                </div>
+                  </div>
                 <!-- AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA -->
                 <ul class="side-nav" id="mobile-demo">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="#">About</a></li>
                     <li><a href="catalog1.html">Catalog</a></li>
+                    <li><a class="waves-effect waves-light" href="favorite.html">My favorites</a></li>
                 </ul>
                 </div>
+        </nav>
+        <nav class="white">
+            <div class="nav-wrapper container">
+              <div class="col s12 m5 l5 center container">
+              <div class="center row">
+                  <div class="col s12 ">
+                      <div class="center row">
+                          <div class="row " id="topbarsearch">
+                              <div class="input-field col s6 s12 white-text">
+                                  <i class="light-blue-text text-darken-4 material-icons prefix">search</i>
+                                  <input type="text" placeholder="search" id="autocomplete-input" class="autocomplete light-blue-text text-darken-4 text-center">
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+             </div>
+           </div>
         </nav>
     </header>
     <main>
         <br>
         <div class="container">
             <div class="row center">
-                <div class="col s12 m4  l4 light-blue darken-4">
+                <div class="col s12 m4  l4">
                     <!-- 00000000000000000000000000000000000000000000000000000000 -->
                     <div class="row">
                         <div class="col s12 m12">
                             <div class="card">
                                 <div class="card-image">
                                     <img src="images/talia.jpg">
-                                    <span class="card-title">Card Title</span>
+                                    <span class="card-title"></span>
                                     <!-- <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a> -->
                                 </div>
                                 <!-- <div class="card-content">
@@ -84,12 +84,24 @@
                         </div>
                     </div>
                     <!-- 00000000000000000000000000000000000000000000000000000 -->
-                    <ul class="collection left-align">
-                        <li class="collection-item  light-blue darken-4">View top favorites</li>
-                        <li class="collection-item  light-blue darken-4">My favorites</li>
-                        <li class="collection-item  light-blue darken-4">Add recipe</li>
-                        <li class="collection-item  light-blue darken-4">Modify recipe</li>
-                    </ul>
+                    <a data-target="modal2" class="waves-effect waves-light btn light-blue darken-4 modal-trigger"><i class="material-icons left">perm_identity</i>View Profile</a>
+                    <!-- Modal Structure -->
+                      <div id="modal2" class="modal">
+                        <div class="modal-content black-text">
+                          <div class="container center">
+                            <form class="" action="#" class="center">
+                              <h4>Profile</h4>
+                              <br>
+                              <img src="images/talia.jpg" class="profie"><br>
+                                <h5>Name: Ode Akugbe<br></h5>
+                                <h5>Occupation: Software developer</h5>
+                            </form>
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat"></a>
+                        </div>
+                      </div>
                 </div>
                 <div class="col s12 m8  l8">
                     <div class="v-scroll-bar">

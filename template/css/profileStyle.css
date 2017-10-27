@@ -3,7 +3,7 @@ html {
 }
 
 .v-scroll-bar {
-    height: 600px;
+    height: 400px;
     overflow-y: auto;
 }
 
@@ -78,4 +78,11 @@ ul {
     border-radius: 50px;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+.profie{
+  height:200px;
+  width:200px;
+  border:solid thin #fff;
+  border-radius: 1;
 }
