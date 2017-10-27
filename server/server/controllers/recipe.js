@@ -71,6 +71,14 @@ class HandleRecipeRequest {
         });
     }
 
+    //6 API route handler that allows a user to get just recipes with the most upvotes
+    static descOrderUpVote(request, response) {
+        if (request.query.sort === "upVotes" && request.query.order === "des") {
+            Recipes.sort((Recipes2, Recipes1) => (Recipes2.upVotes - Recipes1.upVotes));
+        }
+        response.status(200).send(Recipes);
+    }
+
 }
 
 export default HandleRecipeRequest;
