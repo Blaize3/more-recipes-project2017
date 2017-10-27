@@ -4,9 +4,9 @@ const Recipes = [{
     id: 0,
     name: 'Fried Rice',
     origin: 'Nigeria',
-    description: 'Fried rice is a nigeria delicacy',
+    description: 'Fried rice is a nigeria',
     ingredients: 'rice',
-    instructions: 'a',
+    instructions: 'boil your rice',
     upVotes: 8,
     downVotes: 2
 }, {
