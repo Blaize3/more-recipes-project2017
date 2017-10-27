@@ -1,0 +1,58 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+#searchIcon {
+    /*  line-height: 0px;*/
+    direction: flex;
+    align-items: center;
+    color: #01579b;
+}
+
+img {
+    width: 100%;
+}
+
+.votereview {
+    color: #bbdefb;
+}
+
+.votereview:hover {
+    color: #01579b;
+}
+
+#topbarsearch {
+    margin: 0px 10px;
+}
+
+.card-border {
+    border: solid thin #d6d4d4;
+}
+
+.card-content{
+  color: #000;
+}
+
+.recipe-name-font {
+    font-weight: bold;
+}
+
+.count {
+    padding: 0px 3px 6px 3px;
+    font-weight: bold;
+}
+
+#autocomplete-input{
+  font-size: 150%;
+  font-weight: bold;
+}
+
+.filter{
+  filter: brightness(50%);
+}
