@@ -49,6 +49,11 @@ class HandleRecipeRequest {
             message: 'Recipe was deleted successfully'
         })
     }
+
+    //4 API route handler that allows a user to get all recipe
+    static getAllRecipes(request, response) {
+        response.status(200).send(Recipes);
+    }
 }
 
 export default HandleRecipeRequest;

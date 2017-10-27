@@ -5,31 +5,37 @@ const Recipes = [{
     name: 'Fried Rice',
     origin: 'Nigeria',
     description: 'Fried rice is a nigeria delicacy',
-    ingredients: ['rice', 'meat', 'oil'],
-    instructions: ['a', 'b', 'c'],
-    reviews: ['this is my review', 'thanks'],
-    reviewCount: 2,
-    voteCount: 6
+    ingredients: 'rice',
+    instructions: 'a',
+    upVotes: 8,
+    downVotes: 2
 }, {
     id: 1,
-    name: '',
-    origin: '',
-    description: '',
-    ingredients: [],
-    instructions: [],
-    reviews: [],
-    reviewCount: 0,
-    voteCount: 0
+    name: 'Fried Rice',
+    origin: 'Nigeria',
+    description: 'Fried rice is a nigeria delicacy',
+    ingredients: 'rice',
+    instructions: 'a',
+    upVotes: 18,
+    downVotes: 2
 }, {
     id: 2,
-    name: '',
-    origin: '',
-    description: '',
-    ingredients: [],
-    instructions: [],
-    reviews: [],
-    reviewCount: 0,
-    voteCount: 0
+    name: 'Fried Rice',
+    origin: 'Nigeria',
+    description: 'Fried rice is a nigeria delicacy',
+    ingredients: 'rice',
+    instructions: 'a',
+    upVotes: 23,
+    downVotes: 2
+}, {
+    id: 3,
+    name: 'Fried Rice',
+    origin: 'Nigeria',
+    description: 'Fried rice is a nigeria delicacy',
+    ingredients: 'rice',
+    instructions: 'a',
+    upVotes: 25,
+    downVotes: 2
 }];
 
 export default Recipes;
