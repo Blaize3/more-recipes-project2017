@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="css/profileStyle.css">
+    <link rel="stylesheet" type="text/css" href="css/mainStyle.css">
+    <link rel="shortcut icon" href="images/icon.png" />
+    <link href="https://fonts.googleapis.com/css?family=Mallanna|Mandali|Open+Sans+Condensed:300|Palanquin|Raleway+Dots" rel="stylesheet">
+    <title>Welcome to more-recipes</title>
+</head>
+
+<body>
+    <header>
+        <nav class="light-blue darken-4">
+            <div class="nav-wrapper container">
+                <a href="#!" class="brand-logo">more-recipes</a>
+                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a class="modal-trigger" href="#modal1">About</a></li>
+                    <li><a href="catalog1.html">Catalog</a></li>
+                    <li><a class="waves-effect waves-light" href="favorite.html">My favorites</a></li>
+                </ul>
+                <!-- AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA -->
+                <div id="modal1" class="modal">
+                    <div class="modal-content black-text center">
+                          <br><br>
+                            <h3>more-recipes</h3>
+                            <p>
+                                <h4>&copy; 2017.</h4></p>
+                            <p>Version 1.0.0</p>
+                    </div>
+                  </div>
+                <!-- AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA -->
+                <ul class="side-nav" id="mobile-demo">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="catalog1.html">Catalog</a></li>
+                    <li><a class="waves-effect waves-light" href="favorite.html">My favorites</a></li>
+                </ul>
+                </div>
+        </nav>
+        <nav class="white">
+            <div class="nav-wrapper container">
+              <div class="col s12 m5 l5 center container">
+              <div class="center row">
+                  <div class="col s12 ">
+                      <div class="center row">
+                          <div class="row " id="topbarsearch">
+                              <div class="input-field col s6 s12 white-text">
+                                  <i class="light-blue-text text-darken-4 material-icons prefix">search</i>
+                                  <input type="text" placeholder="search" id="autocomplete-input" class="autocomplete light-blue-text text-darken-4 text-center">
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+             </div>
+           </div>
+        </nav>
+    </header>
+    <main>
+        <br>
+        <div class="container">
+            <div class="row center">
+                <div class="col s12 m4  l4">
+                    <!-- 00000000000000000000000000000000000000000000000000000000 -->
+                    <div class="row">
+                        <div class="col s12 m12">
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="images/talia.jpg">
+                                    <span class="card-title"></span>
+                                    <!-- <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a> -->
+                                </div>
+                                <!-- <div class="card-content">
+                                    <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 00000000000000000000000000000000000000000000000000000 -->
+                    <a data-target="modal2" class="waves-effect waves-light btn light-blue darken-4 modal-trigger"><i class="material-icons left">perm_identity</i>View Profile</a>
+                    <!-- Modal Structure -->
+                      <div id="modal2" class="modal">
+                        <div class="modal-content black-text">
+                          <div class="container center">
+                            <form class="" action="#" class="center">
+                              <h4>Profile</h4>
+                              <br>
+                              <img src="images/talia.jpg" class="profie"><br>
+                                <h5>Name: Ode Akugbe<br></h5>
+                                <h5>Occupation: Software developer</h5>
+                            </form>
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat"></a>
+                        </div>
+                      </div>
+                </div>
+                <div class="col s12 m8  l8">
+                    <div class="v-scroll-bar">
+                        <ul class="collapsible" data-collapsible="accordion">
+                            <li>
+                                <div class="collapsible-header"><i class="material-icons logo-color">add_circle</i>Add recipe</div>
+                                <div class="collapsible-body">
+                                    <!-- 0000000000000000000000000000000000000000000000000 -->
+                                    <div class="content-holder">
+                                        <img src="images/food.jpg" alt="Recipe Icon" class="userIcon"><br>
+                                        <a class="waves-effect waves-light btn blue-grey">Upload recipe icon</a>
+                                        <div class="row">
+                                            <form>
+                                                <br>
+                                                <div>
+                                                    <h4>Create Recipe</h4>
+                                                </div>
+                                                <div class="container-layout">
+                                                    <input type="text" name="recipename" id="recipename" placeholder="Recipe's name"><br>
+                                                    <input type="text" name="description" id="description" placeholder="Describe recipe"><br>
+                                                    <input type="text" name="country" id="country" placeholder="Country of origin"><br>
+
+                                                    <textarea id="ingredients" name="ingredients" class="materialize-textarea" placeholder="Ingredients: (enter a comma seperated list of ingredients eg Rice, Tomato, Meat, ...)"></textarea><br>
+
+                                                    <textarea id="textarea1" name="ingredients" class="materialize-textarea" placeholder="Instructions: (enter a comma seperated list of instructions)"></textarea><br>
+                                                    <a class="waves-effect waves-light btn blue-grey">Create recipe</a>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <!-- 0000000000000000000000000000000000000000000000 -->
+                                </div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header"><i class="material-icons logo-color">mode_edit</i>Modify recipe</div>
+                                <div class="collapsible-body">
+                                    <form>
+                                        <br>
+                                        <div>
+                                            <h4>Modify a Recipe</h4>
+                                        </div>
+                                        <div class="container-layout">
+                                            <div class="input-field col s12">
+                                                <select>
+                                                <option value="" disabled selected>Select a recipe</option>
+                                                <option value="1">Option 1</option>
+                                                <option value="2">Option 2</option>
+                                                <option value="3">Option 3</option>
+                                              </select>
+                                            </div><br>
+                                            <input type="text" name="editedrecipename" id="editedrecipename" placeholder="Edit recipe's name"><br>
+                                            <input type="text" name="editeddescription" id="editeddescription" placeholder="EditDescribe recipe"><br>
+                                            <input type="text" name="editedcountry" id="editedcountry" placeholder="Edit country of Origin"><br>
+
+                                            <textarea id="editedingredients" name="editedingredients" class="materialize-textarea" placeholder="edit ingredients: (enter a comma seperated list of ingredients eg Rice, Tomato, Meat, ...)"></textarea><br>
+
+                                            <textarea id="editedinstructions" name="editedinstructions" class="materialize-textarea" placeholder="Edit instructions: (enter a comma seperated list of instructions)"></textarea><br>
+                                            <a class="waves-effect waves-light btn blue-grey">Update recipe</a>
+                                        </div>
+                                    </form>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header"><i class="material-icons logo-color">delete</i>Delete recipe</div>
+                                <div class="collapsible-body">
+                                    <!-- 000000000000000000000000000000000000000000000000000 -->
+                                    <form>
+                                        <br>
+                                        <div>
+                                            <h4>Delete Recipe</h4>
+                                        </div>
+                                        <div class="container-layout">
+                                            <div class="input-field col s12">
+                                                <select>
+                                                <option value="" disabled selected>Select a recipe</option>
+                                                <option value="1">Option 1</option>
+                                                <option value="2">Option 2</option>
+                                                <option value="3">Option 3</option>
+                                              </select>
+                                            </div>
+                                            <a class="waves-effect waves-light btn blue-grey">Delete recipe</a>
+                                        </div>
+                                    </form>
+                                    <!-- 0000000000000000000000000000000000000000000000000 -->
+                                </div>
+                            </li>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="page-footer light-blue darken-4">
+        <div class="footer-copyright">
+            <div class="container">
+                © 2017 more-recipes.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script src="javascript/index.js"></script>
+    <script src="javascript/profile.js"></script>
+</body>
+
+</html>
