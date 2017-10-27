@@ -1,9 +1,3 @@
-@media only screen and (max-width: 1100px) {
-    #topbarsearch {
-        display: none;
-    }
-}
-
 body {
     display: flex;
     min-height: 100vh;
@@ -41,6 +35,10 @@ img {
     border: solid thin #d6d4d4;
 }
 
+.card-content{
+  color: #000;
+}
+
 .recipe-name-font {
     font-weight: bold;
 }
@@ -48,4 +46,13 @@ img {
 .count {
     padding: 0px 3px 6px 3px;
     font-weight: bold;
+}
+
+#autocomplete-input{
+  font-size: 150%;
+  font-weight: bold;
+}
+
+.filter{
+  filter: brightness(50%);
 }
