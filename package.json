@@ -1,50 +1,53 @@
 {
-    "name": "more-recipes-project2017",
-    "version": "1.0.0",
-    "description": "Andela cycle XXVIII project",
-    "main": "./server/src/app.js",
-    "scripts": {
-        "build": "babel --preset es2015 ./server/bin -d ./server/dist/bin",
-        "build:app": "babel --preset es2015 ./server/ -d ./server/dist/",
-        "execute:server": "nodemon ./server/dist/bin/www.js",
-        "start:dev": "nodemon --exec ./node_modules/.bin/babel-node ./server/bin/www.js",
-        "test": "nyc mocha --require babel-polyfill --compilers js:babel-register ./server/test/test.js",
-        "coverage": "nyc --all npm test && nyc report --reporter=html --reporter=text-summary"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/Blaize3/more-recipes-project2017.git"
-    },
-    "keywords": [],
-    "author": "Ode Akugbe",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/Blaize3/more-recipes-project2017/issues"
-    },
-    "homepage": "https://github.com/Blaize3/more-recipes-project2017#readme",
-    "devDependencies": {
-        "babel-cli": "^6.26.0",
-        "babel-core": "^6.26.0",
-        "babel-loader": "^7.1.2",
-        "babel-preset-es2015": "^6.24.1",
-        "babel-register": "^6.26.0",
-        "chai": "^4.1.2",
-        "cross-env": "^5.1.0",
-        "eslint": "^4.9.0",
-        "eslint-config-airbnb": "^16.1.0",
-        "eslint-plugin-import": "^2.8.0",
-        "eslint-plugin-jsx-a11y": "^6.0.2",
-        "eslint-plugin-react": "^7.4.0",
-        "mocha": "^4.0.1",
-        "nodemon": "^1.12.1",
-        "nyc": "^11.2.1",
-        "supertest": "^3.0.0"
-    },
-    "dependencies": {
-        "body-parser": "^1.18.2",
-        "cookie-parser": "^1.4.3",
-        "express": "^4.16.2",
-        "express-validator": "^4.2.1",
-        "morgan": "^1.9.0"
-    }
+  "name": "more-recipes-project2017",
+  "version": "1.0.0",
+  "description": "Andela cycle XXVIII project",
+  "main": "./server/src/app.js",
+  "scripts": {
+    "build": "babel --preset es2015 ./server/bin -d ./server/dist/bin",
+    "build:app": "babel --preset es2015 ./server/ -d ./server/dist/",
+    "execute:server": "nodemon ./server/dist/bin/www.js",
+    "start:dev": "nodemon --exec ./node_modules/.bin/babel-node ./server/bin/www.js",
+    "test": "nyc mocha --require babel-polyfill --compilers js:babel-register ./server/test/test.js",
+    "coverage": "nyc --all npm test && nyc report --reporter=html --reporter=text-summary"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Blaize3/more-recipes-project2017.git"
+  },
+  "keywords": [],
+  "author": "Ode Akugbe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Blaize3/more-recipes-project2017/issues"
+  },
+  "homepage": "https://github.com/Blaize3/more-recipes-project2017#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "chai": "^4.1.2",
+    "cross-env": "^5.1.0",
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.4.0",
+    "mocha": "^4.0.1",
+    "nodemon": "^1.12.1",
+    "nyc": "^11.2.1",
+    "supertest": "^3.0.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.2",
+    "express-validator": "^4.2.1",
+    "morgan": "^1.9.0",
+    "pg": "^7.3.0",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.19.0"
+  }
 }
