@@ -1,26 +1,18 @@
 {
-    "name": "more-recipes-project2017",
+    "name": "server",
     "version": "1.0.0",
-    "description": "Andela cycle XXVIII project",
-    "main": "./server/src/app.js",
+    "description": "more-recipe backend and API implentation",
+    "main": "app.js",
     "scripts": {
-        "build": "babel --preset es2015 ./server/bin -d ./server/dist/bin",
-        "build:app": "babel --preset es2015 ./server/src -d ./server/dist/src",
-        "execute:server": "nodemon ./server/dist/bin/www.js",
-        "start:dev": "nodemon --exec ./node_modules/.bin/babel-node ./server/bin/www.js",
-        "test": "mocha --require babel-polyfill --compilers js:babel-register ./server/test/test.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/Blaize3/more-recipes-project2017.git"
+        "build": "babel --preset es2015 ./bin -d dist/bin",
+        "build:app": "babel --preset es2015 src -d dist/src",
+        "execute:server": "nodemon ./dist/bin/www.js",
+        "start:dev": "nodemon --exec ./node_modules/.bin/babel-node ./bin/www.js",
+        "test": "mocha --require babel-polyfill --compilers js:babel-register test/test.js"
     },
     "keywords": [],
     "author": "Ode Akugbe",
     "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/Blaize3/more-recipes-project2017/issues"
-    },
-    "homepage": "https://github.com/Blaize3/more-recipes-project2017#readme",
     "devDependencies": {
         "babel-cli": "^6.26.0",
         "babel-core": "^6.26.0",
