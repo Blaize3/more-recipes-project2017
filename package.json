@@ -8,7 +8,8 @@
         "build:app": "babel --preset es2015 ./server/src -d ./server/dist/src",
         "execute:server": "nodemon ./server/dist/bin/www.js",
         "start:dev": "nodemon --exec ./node_modules/.bin/babel-node ./server/bin/www.js",
-        "test": "mocha --require babel-polyfill --compilers js:babel-register ./server/test/test.js"
+        "test": "nyc mocha --require babel-polyfill --compilers js:babel-register ./server/test/test.js",
+        "coverage": "nyc --all npm test && nyc report --reporter=html --reporter=text-summary"
     },
     "repository": {
         "type": "git",
@@ -36,6 +37,7 @@
         "eslint-plugin-react": "^7.4.0",
         "mocha": "^4.0.1",
         "nodemon": "^1.12.1",
+        "nyc": "^11.2.1",
         "supertest": "^3.0.0"
     },
     "dependencies": {
