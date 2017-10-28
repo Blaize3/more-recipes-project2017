@@ -1,5 +1,3 @@
-/*eslint-disable*/
-
 import Recipes from '../../models/recipe';
 
 class RecipeIdValidator {

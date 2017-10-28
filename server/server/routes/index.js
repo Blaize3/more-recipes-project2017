@@ -1,5 +1,3 @@
-/*eslint-disable*/
-
 import HandleRecipeRequest from '../controllers/recipe';
 import Validator from '../controllers/helpers/validator';
 

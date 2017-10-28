@@ -4,7 +4,7 @@ import express from 'express';
 import logger from 'morgan';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
-import server from '../server/routes/index.js';
+import server from './server/routes/index.js';
 
 //  set up the express app
 const app = express();

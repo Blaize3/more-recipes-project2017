@@ -1,4 +1,3 @@
-/*eslint-disable*/
 import Recipes from '../models/recipe';
 import Review from '../models/review';
 

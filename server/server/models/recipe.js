@@ -1,5 +1,3 @@
-/*eslint-disable*/
-
 const Recipes = [{
     id: 0,
     name: 'Fried Rice',
