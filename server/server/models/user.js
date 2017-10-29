@@ -1,35 +1,39 @@
-export default (sequelize, Sequelize) => {
+'use strict';
+module.exports = (sequelize, DataTypes) => {
     const User = sequelize.define('User', {
         username: {
-            type: Sequelize.STRING,
+            type: DataTypes.STRING,
             allowNull: false
         },
         email: {
-            type: Sequelize.STRING,
+            type: DataTypes.STRING,
             allowNull: false
         },
         password: {
-            type: Sequelize.STRING,
+            type: DataTypes.STRING,
             allowNull: false
         },
         firstname: {
-            type: Sequelize.STRING,
+            type: DataTypes.STRING,
             allowNull: true
         },
         lastname: {
-            type: Sequelize.STRING,
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        isAuthenticated: {
+            type: DataTypes.BOOLEAN,
             allowNull: true
         }
     });
+
     User.associate = (models) => {
         User.hasMany(models.Recipe, {
-            foreignKey: "userId",
-            as: "creator"
+            foreignKey: "userId"
         });
 
         User.hasMany(models.Review, {
-            foreignKey: "userId",
-            as: "writer"
+            foreignKey: "userId"
         });
     }
     return User;

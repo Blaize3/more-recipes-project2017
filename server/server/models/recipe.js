@@ -1,43 +1,42 @@
-export default (sequelize, Sequelize) => {
+'use strict';
+module.exports = (sequelize, DataTypes) => {
     const Recipe = sequelize.define('Recipe', {
         userId: {
-            type: Sequelize.INTEGER,
+            type: DataTypes.INTEGER,
             allowNull: false
         },
         name: {
-            type: Sequelize.STRING,
+            type: DataTypes.STRING,
             allowNull: false
         },
         origin: {
-            type: Sequelize.STRING,
-            allowNull: true
+            type: DataTypes.STRING,
+            allowNull: false
         },
         description: {
-            type: Sequelize.TEXT,
+            type: DataTypes.TEXT,
             allowNull: false
         },
         ingredints: {
-            type: Sequelize.TEXT,
+            type: DataTypes.TEXT,
             allowNull: false
         },
         instructions: {
-            type: Sequelize.TEXT,
+            type: DataTypes.TEXT,
             allowNull: false
         },
         upVote: {
-            type: Sequelize.INTEGER,
+            type: DataTypes.INTEGER,
             allowNull: false
         },
         downVote: {
-            type: Sequelize.INTEGER,
+            type: DataTypes.INTEGER,
             allowNull: false
         }
     });
-
     Recipe.associate = (models) => {
         Recipe.hasMany(models.Review, {
-            foreignKey: "userId",
-            as: "recipe reviewed"
+            foreignKey: "userId"
         });
 
         Recipe.belongsTo(models.User, {

@@ -1,51 +1,76 @@
-import HandleRecipeRequest from '../controllers/recipe';
-import Validator from '../controllers/helpers/validator';
+/* eslint-disable */
+
+const userController = require('../controllers').User;
+// const bookController = require('../controllers').Book;
+// const borrowController = require('../controllers').Borrow;
+
+const isAuthenticated = require('../controllers/helpers/user');
 
 module.exports = (app) => {
+    /*          0000000000000000000000000000000000000000000000000000000000000000000000000
+                000                                                                   000
+                000                ALL POST ROUTES WILL LISTED BELOW                  000
+                000                                                                   000
+                0000000000000000000000000000000000000000000000000000000000000000000000000            */
+    ///
+    ///         API routes for users to create accounts 
+    ///
+    ///          POST:/api/users/signup
+    app.post('/api/users/signup', userController.signup);
 
-    app.get('/api', (request, response) => response.status(200).send({
-        message: 'Welcome to my actual API route'
-    }));
+    ///
+    ///         API routes for users to login into their account
+    ///
+    ///          POST:/api/users/signin
+    app.post('/api/users/signin', /* userController.signin*/ );
 
-    /// API endpoint for users to create account
-    app.post('/api/users/signup', (request, response) => {
+    // ///
+    // ///         API routes that allow a user to add a new book 
+    // ///
+    // ///          POST:/api/books
+    // app.post('/api/addbook', bookController.addABook);
 
-    });
+    // ///
+    // ///         API routes that allow user to borrow a book 
+    // ///
+    // ///          POST:/api/users/:userId/books
+    // app.post('/api/users/:userId/borrowbook', isAuthenticated.authentcatedUser, borrowController.borrowABook);
 
-    /// API endpoint for users to login to the application
-    app.post('/api/users/signin', (request, response) => {
+    // /*          0000000000000000000000000000000000000000000000000000000000000000000000000
+    //             000                                                                   000
+    //             000                ALL GET ROUTES WILL LISTED BELOW                   000
+    //             000                                                                   000
+    //             0000000000000000000000000000000000000000000000000000000000000000000000000            */
+    // ///
+    // ///         API routes that allow a user to get all the books in the library
+    // ///
+    // ///          GET:/api/books
+    // app.get('/api/getallbooks', bookController.getAllBooks);
 
-    });
+    // ///
+    // ///         API routes that allow users to get all the books that the user has borrowed but has not              returned 
+    // ///
+    // ///          POST:/api/users/:userId/books?returned=false
+    // app.get('/api/users/:userId/getBooks', isAuthenticated.authentcatedUser, borrowController.yetToBeReturnedBorrowedBooks);
 
-    /// API route that allows authenticated user to add a recipe
-    app.post('/api/recipes', (request, response) => {
-        HandleRecipeRequest.addRecipe(request, response);
-    });
 
-    /// API route that allows authenticated user to modify a recipe they added
-    app.put('/api/recipes/:recipeId', Validator.validateId, (request, response) => {
-        HandleRecipeRequest.modifyRecipe(request, response);
-    });
+    // /*          0000000000000000000000000000000000000000000000000000000000000000000000000
+    //             000                                                                   000
+    //             000                ALL PUT ROUTES WILL LISTED BELOW                   000
+    //             000                                                                   000
+    //             0000000000000000000000000000000000000000000000000000000000000000000000000            */
+    // ///
+    // ///         API routes that allow a users to modify a book information
+    // ///
+    // ///          PUT:/api/books
+    // app.put('/api/modifybookinformation', bookController.modifyBookInformation);
 
-    /// API route that allows authenticated user to delete a recipe they added
-    app.delete('/api/recipes/:recipeId', Validator.validateId, (request, response) => {
-        HandleRecipeRequest.deleteRecipe(request, response);
-    });
+    // ///
+    // ///         API routes that allow users to return a book 
+    // ///
+    // ///          PUT:/api/users/:userId/books
+    // app.put('/api/users/:userId/returnborrowedbook', isAuthenticated.authentcatedUser, borrowController.returnBorrowedBook);
 
-    /// API route that allows a user to get all the recipe in the application
-    /// API route that allows a user to get just recipe with the most upvotes
-    app.get('/api/recipes', (request, response) => {
-        HandleRecipeRequest.getAllRecipes(request, response);
-        // 2 routes
-    });
 
-    /// API route that allows authenticated user to post a review
-    app.post('/api/recipes/:recipeId/reviews', Validator.validateId, (request, response) => {
-        HandleRecipeRequest.postAReview(request, response);
-    });
 
-    /// API route that allows authenticated user to get all his/her favorite recipe
-    app.get('/api/user/:userId/recipes', (request, response) => {
-
-    });
-};
+}; // closes module.exports Object
