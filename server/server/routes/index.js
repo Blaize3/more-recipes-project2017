@@ -1,8 +1,11 @@
 /* eslint-disable */
 
 const userController = require('../controllers').User;
+const recipeController = require('../controllers').Recipe;
+const reviewController = require('../controllers').Review;
 
-const isAuthenticated = require('../controllers/helpers/user');
+const isAuthenticatedParams = require('../controllers/helpers/userReqParam');
+const isAuthenticatedBody = require('../controllers/helpers/userReqBody');
 
 module.exports = (app) => {
     /*          0000000000000000000000000000000000000000000000000000000000000000000000000
@@ -22,11 +25,11 @@ module.exports = (app) => {
     ///          POST:/api/users/signin
     app.post('/api/users/signin', userController.signin);
 
-    // ///
-    // ///         API routes that allow a user to add a new book 
-    // ///
-    // ///          POST:/api/books
-    // app.post('/api/addbook', bookController.addABook);
+    ///
+    ///         API routes that allow a user to add a new book 
+    ///
+    ///          POST:/api/books
+    app.post('/api/addrecipe', isAuthenticatedBody.authentcatedUser, recipeController.addRecipe);
 
     // ///
     // ///         API routes that allow user to borrow a book 
