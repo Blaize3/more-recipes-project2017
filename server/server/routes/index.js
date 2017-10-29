@@ -1,8 +1,6 @@
 /* eslint-disable */
 
 const userController = require('../controllers').User;
-// const bookController = require('../controllers').Book;
-// const borrowController = require('../controllers').Borrow;
 
 const isAuthenticated = require('../controllers/helpers/user');
 
@@ -22,7 +20,7 @@ module.exports = (app) => {
     ///         API routes for users to login into their account
     ///
     ///          POST:/api/users/signin
-    app.post('/api/users/signin', /* userController.signin*/ );
+    app.post('/api/users/signin', userController.signin);
 
     // ///
     // ///         API routes that allow a user to add a new book 
