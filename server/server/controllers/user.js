@@ -24,29 +24,4 @@ module.exports = {
     }, // closes createAUserAccount function
 
 
-    signin(request, response) {
-        return User.findOne({
-            where: {
-                $or: [
-                    { username: request.body.username },
-                    { email: request.body.email },
-                ],
-                password: request.body.password
-            }
-        }).then((user) => {
-            if (!user) {
-                response.status(401).send({
-                    message: 'Access Denied!',
-                    details: 'Invalid Username or Password!'
-                });
-            }
-            response.status(200).send({
-                message: 'Access granted',
-                Details: user
-            });
-        }).catch((error) => response.status(400).send({
-            fatal: "An error occured while trying to sign in a user.",
-            Error: error
-        }));
-    },
 }; // closes module.exports Object
