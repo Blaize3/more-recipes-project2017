@@ -23,7 +23,6 @@ module.exports = {
         }));
     }, // closes createAUserAccount function
 
-
     signin(request, response) {
         return User.findOne({
             where: {
