@@ -1,3 +1,4 @@
+'use strict';
 module.exports = {
     up: (queryInterface, Sequelize) => {
         queryInterface.createTable('Reviews', {
@@ -8,16 +9,16 @@ module.exports = {
                 type: Sequelize.INTEGER
             },
             recipeId: {
-                type: Sequelize.INTEGER,
-                allowNull: false
+                allowNull: false,
+                type: Sequelize.INTEGER
             },
             userId: {
-                type: Sequelize.INTEGER,
-                allowNull: false
+                allowNull: false,
+                type: Sequelize.INTEGER
             },
             reviewBody: {
-                type: Sequelize.TEXT,
-                allowNull: false
+                allowNull: false,
+                type: Sequelize.TEXT
             },
             createdAt: {
                 allowNull: false,

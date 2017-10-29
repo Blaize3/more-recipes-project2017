@@ -1,19 +1,19 @@
-export default (sequelize, Sequelize) => {
-    const Review = sequelize.define('Review', {
+'use strict';
+module.exports = (sequelize, DataTypes) => {
+    var Review = sequelize.define('Review', {
         recipeId: {
-            type: Sequelize.INTEGER,
+            type: DataTypes.INTEGER,
             allowNull: false
         },
         userId: {
-            type: Sequelize.INTEGER,
+            type: DataTypes.INTEGER,
             allowNull: false
         },
         reviewBody: {
-            type: Sequelize.TEXT,
+            type: DataTypes.TEXT,
             allowNull: false
         }
     });
-
     Review.associate = (models) => {
         Review.belongsTo(models.User, {
             foreignKey: "userId",
