@@ -95,5 +95,31 @@ class HandleRecipeRequest {
           }));
       });
   }
+  /**
+ *
+ *
+ * @static
+ * @param {any} request
+ * @param {any} response
+ * @returns {object} The identifier for ...
+ * @memberof HandleRecipeRequest
+ */
+  static getAllRecipes(request, response) {
+    return Recipe.findAll()
+      .then((recipes) => {
+        if (recipes.length <= 0) {
+          response.status(200).send({
+            message: 'No Recipe Found',
+          });
+        }
+        response.status(200).send({
+          message: `${recipes.length} ${(recipes.length === 1 ? 'Recipe' : 'Recipes')} was Found.`,
+          Details: recipes
+        });
+      }).catch(error => response.status(400).send({
+        fatal: 'An error occured while trying to retrieving all recipe.',
+        Error: error
+      }));
+  }
 }// ends the class
 export default HandleRecipeRequest;
