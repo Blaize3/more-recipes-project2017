@@ -1,10 +1,8 @@
-/* eslint-disable*/
-
 import express from 'express';
 import logger from 'morgan';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
-import server from './server/routes/index.js';
+import server from './server/routes/index';
 
 //  set up the express app
 const app = express();
@@ -24,7 +22,7 @@ server(app);
 
 // Setup a default catch all route that sends back a welcome message in JSON format
 app.get('*', (request, response) => response.status(200).send({
-    message: 'Welcome to more-recipes...'
+  message: 'Welcome to more-recipes...'
 }));
 
 export default app;

@@ -1,6 +1,6 @@
 {
     "development": {
-        "username": "Ode Akugbe",
+        "username": "",
         "password": null,
         "database": "more-recipes-dev",
         "host": "127.0.0.1",
@@ -8,7 +8,7 @@
         "dialect": "postgres"
     },
     "test": {
-        "username": "Ode Akugbe",
+        "username": "",
         "password": null,
         "database": "more-recipes-test",
         "host": "127.0.0.1",
@@ -16,7 +16,7 @@
         "dialect": "postgres"
     },
     "production": {
-        "username": "Ode Akugbe",
+        "username": "",
         "password": null,
         "database": "database_production",
         "host": "127.0.0.1",
