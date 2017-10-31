@@ -29,9 +29,7 @@ class HandleUserRequest {
       username: request.body.username,
       password: hashedPassword,
       firstname: request.body.firstname,
-      lastname: request.body.lastname,
-      sex: request.body.sex,
-      isAuthenticated: false
+      lastname: request.body.lastname
     }).then((user) => {
       response.status(200).send({
         message: 'acount was created successfully',

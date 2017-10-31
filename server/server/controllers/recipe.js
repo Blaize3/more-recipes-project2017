@@ -22,8 +22,8 @@ class HandleRecipeRequest {
       description: request.body.description,
       ingredients: request.body.ingredients,
       instructions: request.body.instructions,
-      upVote: request.body.upVote,
-      downVote: request.body.downVote
+      upVoteCount: request.body.upVoteCount,
+      downVoteCount: request.body.downVoteCount
     }).then((recipe) => {
       response.status(200).send({
         message: 'Recipe was added successfully',
@@ -120,6 +120,26 @@ class HandleRecipeRequest {
         fatal: 'An error occured while trying to retrieving all recipe.',
         Error: error
       }));
+  }
+  /**
+ *
+ *
+ * @param {any} request
+ * @param {any} response
+ * @returns {object} The identifier for ...
+ * @memberof HandleRecipeRequest
+ */
+  static getSortUpVote(request, response) {
+    return Recipe.findAll({
+      order: [
+        ['upvote', 'DESC']
+      ]
+    }).then((recipes) => {
+
+    }).catch(error => response.status(400).send({
+      fatal: 'An error occured while trying to retrieving all recipe.',
+      Error: error
+    }));
   }
 }// ends the class
 export default HandleRecipeRequest;

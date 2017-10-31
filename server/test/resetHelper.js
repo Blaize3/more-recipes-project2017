@@ -1,6 +1,6 @@
-import models from '../server/models';
+const models = require('../server/models');
 
-const ResetHelper = {
+module.exports = {
   init() {
     console.log('Resetting the Database....Please wait...');
     models.sequelize.sync({
@@ -13,4 +13,4 @@ const ResetHelper = {
   }
 };
 
-export default ResetHelper.init();
+// export default ResetHelper.init();
