@@ -61,12 +61,39 @@ class HandleRecipeRequest {
     }).then((recipe) => {
       response.status(200).send({
         message: 'update was successful',
-        Detail: [recipe]
+        Detail: recipe
       });
     }).catch(error => response.status(400).send({
       fatal: 'An error occured while trying to modify recipe information.',
       Error: error
     }));
+  }
+  /**
+ *
+ *
+ * @param {any} request
+ * @param {any} response
+ * @returns {object} The identifier for ...
+ * @memberof HandleRecipeRequest
+ */
+  static deleteRecipe(request, response) {
+    Recipe.findById(request.params.recipeId)
+      .then((recipe) => {
+        if (!recipe) {
+          return response.status(400).send({
+            message: 'Recipe Not Found'
+          });
+        }
+        return recipe
+          .destroy()
+          .then(() => response.status(200).send({
+            message: 'Recipe was deleted successfully'
+          }))
+          .catch(error => response.status(400).send({
+            fatal: 'An error occured while trying to delete recipe.',
+            Error: error
+          }));
+      });
   }
 }// ends the class
 export default HandleRecipeRequest;
