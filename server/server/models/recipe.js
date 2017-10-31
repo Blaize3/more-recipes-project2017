@@ -25,21 +25,26 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT,
       allowNull: false
     },
-    upVote: {
+    upVoteCount: {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    downVote: {
+    downVoteCount: {
       type: DataTypes.INTEGER,
       allowNull: false
     }
   });
+
   Recipe.associate = (models) => {
     Recipe.hasMany(models.Review, {
       foreignKey: 'userId'
     });
 
     Recipe.hasMany(models.Favorite, {
+      foreignKey: 'recipeId'
+    });
+
+    Recipe.hasMany(models.Vote, {
       foreignKey: 'recipeId'
     });
 

@@ -29,14 +29,6 @@ module.exports = {
         allowNull: true,
         type: Sequelize.STRING
       },
-      sex: {
-        allowNull: true,
-        type: Sequelize.STRING
-      },
-      isAuthenticated: {
-        allowNull: false,
-        type: Sequelize.BOOLEAN
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
