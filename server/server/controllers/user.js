@@ -20,7 +20,7 @@ class HandleUserRequest {
    * @memberof HandleUserRequest
    */
   static signup(request, response) {
-    let hashedPassword;
+    let hashedPassword = '';
     bcrypt.hash(request.body.password, 10, (err, bcryptedPassword) => {
       hashedPassword = bcryptedPassword;
     });
