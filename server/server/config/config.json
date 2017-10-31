@@ -1,0 +1,26 @@
+{
+    "development": {
+        "username": "",
+        "password": null,
+        "database": "more-recipes-dev",
+        "host": "127.0.0.1",
+        "port": 5432,
+        "dialect": "postgres"
+    },
+    "test": {
+        "username": "",
+        "password": null,
+        "database": "more-recipes-test",
+        "host": "127.0.0.1",
+        "port": 5432,
+        "dialect": "postgres"
+    },
+    "production": {
+        "username": "",
+        "password": null,
+        "database": "database_production",
+        "host": "127.0.0.1",
+        "port": 5432,
+        "dialect": "postgres"
+    }
+}
