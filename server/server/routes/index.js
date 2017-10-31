@@ -6,7 +6,7 @@ import HandleReviewRequest from '../controllers/review';
 
 import UserIdBodyValidator from '../controllers/helpers/userReqParam'; // isAuthenticatedParams
 import isAuthenticatedBody from '../controllers/helpers/userReqBody';
-import isValidRecipeId from '../controllers/helpers/recipeIdValidator';
+import RecipeParamsValidator from '../controllers/helpers/recipeIdValidator';
 
 export default (app) => {
   // API endpoints for users to create accounts in application:
@@ -17,4 +17,11 @@ export default (app) => {
   // POST : /api/users/signin
   app.post('/api/v1/users/signin', HandleUserRequest.signin);
 
+  // An API route that allows authenticated user to add a recipe:
+  // POST : /api/recipes
+  app.post('/api/v1/recipes', isAuthenticatedBody.authentcatedUser, HandleRecipeRequest.addRecipe);
+
+  // An API route that allows authenticated user to modify a recipe they added
+  // PUT : /api/recipes/<recipeId>
+  app.put('/api/v1/recipes/:recipeId', RecipeParamsValidator.validateRecipeId, isAuthenticatedBody.authentcatedUser, HandleRecipeRequest.modifyRecipe);
 }; // closes module.exports Object

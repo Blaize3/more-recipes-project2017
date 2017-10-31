@@ -34,5 +34,39 @@ class HandleRecipeRequest {
       Error: error
     }));
   }
+  /**
+ *
+ *
+ * @static
+ * @param {object} request
+ * @param {object} response
+ * @returns {object} The identifier for ...
+ * @memberof HandleRecipeRequest
+ */
+  static modifyRecipe(request, response) {
+    const updateObject = {
+      userId: request.body.userId,
+      name: request.body.name,
+      origin: request.body.origin,
+      description: request.body.description,
+      ingredients: request.body.ingredients,
+      instructions: request.body.instructions,
+      upVote: request.body.upVote,
+      downVote: request.body.downVote
+    };
+    return Recipe.update(updateObject, {
+      where: {
+        id: request.params.recipeId
+      }
+    }).then((recipe) => {
+      response.status(200).send({
+        message: 'update was successful',
+        Detail: [recipe]
+      });
+    }).catch(error => response.status(400).send({
+      fatal: 'An error occured while trying to modify recipe information.',
+      Error: error
+    }));
+  }
 }// ends the class
 export default HandleRecipeRequest;
