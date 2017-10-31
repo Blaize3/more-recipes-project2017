@@ -35,4 +35,8 @@ export default (app) => {
   // An API route that allows a user to get just recipes with the most upvotes
   // GET : /api/recipes?sort=upvotes&order=desc
   app.get('/api/v1/recipes', HandleRecipeRequest.getAllRecipes);
+
+  // An API route that allows an authenticated user post a review for a recipe
+  // POST : /api/recipes/<recipeId>/reviews
+  app.post('/api/v1/recipes/:recipeId/reviews', RecipeParamsValidator.validateRecipeId, isAuthenticatedBody.authentcatedUser, HandleReviewRequest.addReview);
 }; // closes module.exports Object
