@@ -24,4 +24,8 @@ export default (app) => {
   // An API route that allows authenticated user to modify a recipe they added
   // PUT : /api/recipes/<recipeId>
   app.put('/api/v1/recipes/:recipeId', RecipeParamsValidator.validateRecipeId, isAuthenticatedBody.authentcatedUser, HandleRecipeRequest.modifyRecipe);
+
+ // An API route that allows authenticated user to delete a recipe they added
+  // DELETE : /api/recipes/<recipeId>
+  app.delete('/api/v1/recipes/:recipeId', RecipeParamsValidator.validateRecipeId, HandleRecipeRequest.deleteRecipe);
 }; // closes module.exports Object
