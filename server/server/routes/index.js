@@ -1,77 +1,20 @@
-/* eslint-disable */
-
-const userController = require('../controllers').User;
-const recipeController = require('../controllers').Recipe;
-const reviewController = require('../controllers').Review;
-
-const isAuthenticatedParams = require('../controllers/helpers/userReqParam');
-const isAuthenticatedBody = require('../controllers/helpers/userReqBody');
-
-module.exports = (app) => {
-    /*          0000000000000000000000000000000000000000000000000000000000000000000000000
-                000                                                                   000
-                000                ALL POST ROUTES WILL LISTED BELOW                  000
-                000                                                                   000
-                0000000000000000000000000000000000000000000000000000000000000000000000000            */
-    ///
-    ///         API routes for users to create accounts 
-    ///
-    ///          POST:/api/users/signup
-    app.post('/api/users/signup', userController.signup);
-
-    ///
-    ///         API routes for users to login into their account
-    ///
-    ///          POST:/api/users/signin
-    app.post('/api/users/signin', userController.signin);
-
-    ///
-    ///         API routes that allow a user to add a new book 
-    ///
-    ///          POST:/api/books
-    app.post('/api/addrecipe', isAuthenticatedBody.authentcatedUser, recipeController.addRecipe);
-
-    // ///
-    // ///         API routes that allow user to borrow a book 
-    // ///
-    // ///          POST:/api/users/:userId/books
-    // app.post('/api/users/:userId/borrowbook', isAuthenticated.authentcatedUser, borrowController.borrowABook);
-
-    // /*          0000000000000000000000000000000000000000000000000000000000000000000000000
-    //             000                                                                   000
-    //             000                ALL GET ROUTES WILL LISTED BELOW                   000
-    //             000                                                                   000
-    //             0000000000000000000000000000000000000000000000000000000000000000000000000            */
-    // ///
-    // ///         API routes that allow a user to get all the books in the library
-    // ///
-    // ///          GET:/api/books
-    // app.get('/api/getallbooks', bookController.getAllBooks);
-
-    // ///
-    // ///         API routes that allow users to get all the books that the user has borrowed but has not              returned 
-    // ///
-    // ///          POST:/api/users/:userId/books?returned=false
-    // app.get('/api/users/:userId/getBooks', isAuthenticated.authentcatedUser, borrowController.yetToBeReturnedBorrowedBooks);
 
 
-    // /*          0000000000000000000000000000000000000000000000000000000000000000000000000
-    //             000                                                                   000
-    //             000                ALL PUT ROUTES WILL LISTED BELOW                   000
-    //             000                                                                   000
-    //             0000000000000000000000000000000000000000000000000000000000000000000000000            */
-    // ///
-    // ///         API routes that allow a users to modify a book information
-    // ///
-    // ///          PUT:/api/books
-    // app.put('/api/modifybookinformation', bookController.modifyBookInformation);
+import HandleUserRequest from '../controllers/user';
+import HandleRecipeRequest from '../controllers/recipe';
+import HandleReviewRequest from '../controllers/review';
 
-    // ///
-    // ///         API routes that allow users to return a book 
-    // ///
-    // ///          PUT:/api/users/:userId/books
-    // app.put('/api/users/:userId/returnborrowedbook', isAuthenticated.authentcatedUser, borrowController.returnBorrowedBook);
+import UserIdBodyValidator from '../controllers/helpers/userReqParam'; // isAuthenticatedParams
+import isAuthenticatedBody from '../controllers/helpers/userReqBody';
+import isValidRecipeId from '../controllers/helpers/recipeIdValidator';
 
+export default (app) => {
+  // API endpoints for users to create accounts in application:
+  // POST : /api/users/signup
+  app.post('/api/v1/users/signup', HandleUserRequest.signup);
 
+  // API endpoints for users login to the application:
+  // POST : /api/users/signin
+  app.post('/api/v1/users/signin', HandleUserRequest.signin);
 
 }; // closes module.exports Object

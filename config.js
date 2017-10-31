@@ -1,3 +1,3 @@
-module.exports = {
-    "secret": 'akugbeodesprojectonmorerecipe'
-}
+export default {
+  secret: 'akugbeodesprojectonmorerecipe'
+};
