@@ -39,6 +39,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.TEXT
       },
+      favorite: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false
+      },     
       upVoteCount: {
         type: Sequelize.INTEGER,
         allowNull: false
