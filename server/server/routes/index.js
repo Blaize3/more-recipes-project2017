@@ -45,7 +45,7 @@ export default (app) => {
   // GET : /api/users/<userId>/recipes
   app.get('/api/v1/users/:userId/recipes', UserIdBodyValidator.authentcatedUser, HandleFavoriteRequest.retrieveFavorites);
 
-  // An API route that allows an authenticated user to favorite a recipes
-  // POST : /api/users/<userId>/recipes
-  app.post('/api/v1/users/:userId/recipes', UserIdBodyValidator.authentcatedUser, HandleFavoriteRequest.addFavorite);
+  // // An API route that allows an authenticated user to favorite a recipes
+  // // POST : /api/users/<userId>/recipes
+  // app.post('/api/v1/users/:userId/recipes', UserIdBodyValidator.authentcatedUser, HandleFavoriteRequest.addFavorite);
 }; // closes module.exports Object

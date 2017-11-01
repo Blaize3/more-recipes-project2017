@@ -30,11 +30,11 @@ module.exports = {
         }
       },
       upVote: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.BOOLEAN
       },
       downVote: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.BOOLEAN
       },
       createdAt: {

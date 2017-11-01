@@ -26,8 +26,8 @@ class RecipeParamsValidator {
       where: {
         id: request.params.recipeId
       }
-    }).then((user) => {
-      if (!user) {
+    }).then((recipe) => {
+      if (!recipe) {
         response.status(401).send({
           message: 'Recipe Not Found!'
         });

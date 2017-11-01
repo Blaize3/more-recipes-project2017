@@ -25,6 +25,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT,
       allowNull: false
     },
+    favorite: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false
+    },
     upVoteCount: {
       type: DataTypes.INTEGER,
       allowNull: false
