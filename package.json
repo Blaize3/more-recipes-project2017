@@ -27,7 +27,7 @@
     "url": "https://github.com/Blaize3/more-recipes-project2017/issues"
   },
   "homepage": "https://github.com/Blaize3/more-recipes-project2017#readme",
-  "devDependencies": {
+  "dependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
@@ -38,9 +38,7 @@
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
     "nodemon": "^1.12.1",
-    "nyc": "^11.2.1"
-  },
-  "dependencies": {
+    "nyc": "^11.2.1",
     "bcrypt": "^1.0.3",
     "body-parser": "^1.18.2",
     "chai": "^4.1.2",
