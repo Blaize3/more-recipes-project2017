@@ -20,11 +20,7 @@ img {
 }
 
 .votereview {
-    color: #bbdefb;
-}
-
-.votereview:hover {
-    color: #01579b;
+    color: #aaa;
 }
 
 #topbarsearch {
@@ -46,6 +42,7 @@ img {
 .count {
     padding: 0px 3px 6px 3px;
     font-weight: bold;
+    color: #000;
 }
 
 #autocomplete-input{
@@ -54,5 +51,42 @@ img {
 }
 
 .filter{
-  filter: brightness(50%);
+  filter: brightness(70%);
 }
+
+.image-height{
+    height: 130%;
+}
+
+.profile-image{
+    min-height: 100%;
+    background-image: url('../image/talia.jpg');
+}
+
+.v-height{
+    min-height: 100vh;
+    flex-direction: column;
+    background: #eee;
+}
+
+.height{
+    min-height: 100vh;
+}
+
+/*00000000000000000000000*/
+
+#form1{
+    margin-left:200px;
+  }
+  .side-nav li a {
+    text-decoration:none;
+  }
+  #searchResults2{
+    background-color:#666666;
+  }
+  #searchResults{
+    background-color:#666666;
+  }
+  .right li a{
+    padding-right:2em;
+    text-decoration:none
