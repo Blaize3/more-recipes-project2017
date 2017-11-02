@@ -1,10 +1,15 @@
 import { Recipe } from '../models';
+// import Token from './helpers/token';
 /**
  *
  *
  * @class HandleRecipeRequest
  */
 class HandleRecipeRequest {
+  // const decodedInfo = Token.decryptToken(request.headers['x-access-token']);
+  // console.log('\n\n\n', decodedInfo.payload.userId, '\n\n\n');
+
+
   /**
    *
    *
@@ -22,8 +27,9 @@ class HandleRecipeRequest {
       description: request.body.description,
       ingredients: request.body.ingredients,
       instructions: request.body.instructions,
-      upVote: request.body.upVote,
-      downVote: request.body.downVote
+      favorite: false,
+      upVoteCount: 0,
+      downVoteCount: 0
     }).then((recipe) => {
       response.status(200).send({
         message: 'Recipe was added successfully',
@@ -51,9 +57,11 @@ class HandleRecipeRequest {
       description: request.body.description,
       ingredients: request.body.ingredients,
       instructions: request.body.instructions,
+      favorite: request.body.favorite,
       upVote: request.body.upVote,
       downVote: request.body.downVote
     };
+
     return Recipe.update(updateObject, {
       where: {
         id: request.params.recipeId
@@ -105,16 +113,60 @@ class HandleRecipeRequest {
  * @memberof HandleRecipeRequest
  */
   static getAllRecipes(request, response) {
-    return Recipe.findAll()
+    if ((request.params.sort === 'upvotes') && (request.params.order === 'desc')) {
+      Recipe.findAll({ limit: 5, order: [['upvote', 'DESC']] })
+        .then((recipes) => {
+          if (recipes.length <= 0) {
+            response.status(200).send({
+              message: 'No Recipe Found.'
+            });
+          }
+          //  message: `${recipes.length} ${(recipes.length === 1 ? 'recipe' : 'recipes')} was found.`,
+          //  Recipes:
+          return response.status(200).send({
+            recipes
+          });
+        }).catch(error => response.status(400).send({
+          fatal: 'An error occured while trying to retrieving all recipe.',
+          Error: error
+        }));
+    } else {
+      Recipe.findAll()
+        .then((recipes) => {
+          if (recipes.length <= 0) {
+            response.status(200).send({
+              message: 'No Recipe Found',
+            });
+          }
+          response.status(200).send({
+            message: `${recipes.length} ${(recipes.length === 1 ? 'Recipe' : 'Recipes')} was Found.`,
+            Details: recipes
+          });
+        }).catch(error => response.status(400).send({
+          fatal: 'An error occured while trying to retrieving all recipe.',
+          Error: error
+        }));
+    }
+  }
+  /**
+ *
+ *
+ * @param {any} request
+ * @param {any} response
+ * @returns {object} The identifier for ...
+ * @memberof HandleRecipeRequest
+ */
+  static getSortUpVote(request, response) {
+    return Recipe.findAll({ limit: 5, order: [['upvote', 'DESC']] })
       .then((recipes) => {
         if (recipes.length <= 0) {
           response.status(200).send({
-            message: 'No Recipe Found',
+            message: 'No Recipe Found.'
           });
         }
         response.status(200).send({
-          message: `${recipes.length} ${(recipes.length === 1 ? 'Recipe' : 'Recipes')} was Found.`,
-          Details: recipes
+          message: `${recipes.length} ${(recipes.length === 1 ? 'recipe' : 'recipes')} was found.`,
+          Recipes: recipes
         });
       }).catch(error => response.status(400).send({
         fatal: 'An error occured while trying to retrieving all recipe.',

@@ -20,14 +20,6 @@ module.exports = (sequelize, DataTypes) => {
     lastname: {
       type: DataTypes.STRING,
       allowNull: false
-    },
-    sex: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    isAuthenticated: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false
     }
   });
 
@@ -41,6 +33,10 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     User.hasMany(models.Favorite, {
+      foreignKey: 'userId'
+    });
+
+    User.hasMany(models.Vote, {
       foreignKey: 'userId'
     });
   };
