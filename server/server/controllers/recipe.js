@@ -1,10 +1,15 @@
-import { Recipe, Favorite, Vote } from '../models';
+import { Recipe } from '../models';
+// import Token from './helpers/token';
 /**
  *
  *
  * @class HandleRecipeRequest
  */
 class HandleRecipeRequest {
+  // const decodedInfo = Token.decryptToken(request.headers['x-access-token']);
+  // console.log('\n\n\n', decodedInfo.payload.userId, '\n\n\n');
+
+
   /**
    *
    *
@@ -22,8 +27,9 @@ class HandleRecipeRequest {
       description: request.body.description,
       ingredients: request.body.ingredients,
       instructions: request.body.instructions,
-      upVoteCount: request.body.upVoteCount,
-      downVoteCount: request.body.downVoteCount
+      favorite: false,
+      upVoteCount: 0,
+      downVoteCount: 0
     }).then((recipe) => {
       response.status(200).send({
         message: 'Recipe was added successfully',
@@ -55,118 +61,20 @@ class HandleRecipeRequest {
       upVote: request.body.upVote,
       downVote: request.body.downVote
     };
-    //
-    //
-    if (request.query.votes === 'upVote' || request.query.votes === 'downVote') {
-      const voteObject = {
-        recipeId: request.params.recipeId,
-        userId: request.body.userId,
-        upVote: null,
-        downVote: null
-      };
-      Vote.findOne({
-        where: {
-          recipeId: request.params.recipeId,
-          $and: [{ userId: request.body.userId }]
-        }
-      }).then((vote) => {
-        if (vote) {
-          response.status(401).send({
-            message: 'You have voted this recipe already.'
-          });
-          return null;
-        }
-        if (!vote) {
-          Recipe.findOne({
-            where: {
-              recipeId: request.params.recipeId
-            }
-          }).then((recipe) => {
-            if (request.query.votes === 'upVote') {
-              recipe.upVoteCount += 1;
-              voteObject.upVote = true;
-            } else {
-              recipe.downVoteCount += 1;
-              voteObject.downVote = true;
-            }
-            Recipe.update(recipe, {
-              where: {
-                recipeId: request.params.recipeId
-              }
-            });
-            Vote.create(voteObject).then((createVote) => {
-              return response.status(200).send({
-                message: `You have ${( request.query.votes === 'upVote' ? 'up voted' : 'down voted')} a Recipe.`,
-                Details: createVote
-              });
-            });
-          });
-        }
-      }).catch(error => response.status(400).send({
-        message: 'Encountered error while trying to up vote or down vote a recipe.',
-        Error: error
-      }));
-      //
-      //  ends upVote
-      //
-    } else if (request.query.votes === 'favorite') {
-      Favorite.findOne({
-        where: {
-          recipeId: request.params.recipeId,
-          $and: [{ userId: request.body.userId }]
-        }
-      }).then((favorite) => {
-        if (favorite) {
-          response.status(401).send({
-            message: 'You have favorited this recipe already.'
-          });
-          return null;
-        }
-        if (!favorite) {
-          updateObject.favorite = true;
-          Recipe.update(updateObject, {
-            where: {
-              id: request.params.recipeId
-            }
-          }).then(nestedRecipe => Favorite.create({
-            recipeId: request.params.recipeId,
-            userid: request.body.userId
-          }).then(() => response.status(200).send({
-            message: 'You favorited this recipe.',
-            Detail: nestedRecipe
-          })).catch(error => response.status(400).send({
-            message: 'Encountered error while trying to add favorite a recipe.',
-            Error: error
-          }))).catch(error => response.status(400).send({
-            fatal: 'An error occured while trying to modify recipe information.',
-            Error: error
-          }));
-        }
-      }).catch(error => response.status(400).send({
-        message: 'Encountered error while trying to favorite a recipe.',
-        Error: error
-      }));
-      //
-      //     ends favorite recipe
-      //
-    } else {
-      //
-      //     Modify Routes handler
-      //
-      return Recipe.update(updateObject, {
-        where: {
-          id: request.params.recipeId
-        }
-      }).then((recipe) => {
-        response.status(200).send({
-          message: 'update was successful',
-          Detail: recipe
-        });
-      }).catch(error => response.status(400).send({
-        fatal: 'An error occured while trying to modify recipe information.',
-        Error: error
-      }));
-    }
+
+    return Recipe.update(updateObject, {
+      where: {
+        id: request.params.recipeId
+      }
+    }).then((recipe) => {
+      response.status(200).send({
+        message: 'update was successful',
+        Detail: recipe
+      });
+    }).catch(error => response.status(400).send({
+      fatal: 'An error occured while trying to modify recipe information.',
+      Error: error
+    }));
   }
   /**
  *
@@ -205,21 +113,39 @@ class HandleRecipeRequest {
  * @memberof HandleRecipeRequest
  */
   static getAllRecipes(request, response) {
-    return Recipe.findAll()
-      .then((recipes) => {
-        if (recipes.length <= 0) {
+    if ((request.params.sort === 'upvotes') && (request.params.order === 'desc')) {
+      Recipe.findAll({ limit: 5, order: [['upvote', 'DESC']] })
+        .then((recipes) => {
+          if (recipes.length <= 0) {
+            response.status(200).send({
+              message: 'No Recipe Found.'
+            });
+          }
           response.status(200).send({
-            message: 'No Recipe Found',
+            message: `${recipes.length} ${(recipes.length === 1 ? 'recipe' : 'recipes')} was found.`,
+            Recipes: recipes
           });
-        }
-        response.status(200).send({
-          message: `${recipes.length} ${(recipes.length === 1 ? 'Recipe' : 'Recipes')} was Found.`,
-          Details: recipes
-        });
-      }).catch(error => response.status(400).send({
-        fatal: 'An error occured while trying to retrieving all recipe.',
-        Error: error
-      }));
+        }).catch(error => response.status(400).send({
+          fatal: 'An error occured while trying to retrieving all recipe.',
+          Error: error
+        }));
+    } else {
+      Recipe.findAll()
+        .then((recipes) => {
+          if (recipes.length <= 0) {
+            response.status(200).send({
+              message: 'No Recipe Found',
+            });
+          }
+          response.status(200).send({
+            message: `${recipes.length} ${(recipes.length === 1 ? 'Recipe' : 'Recipes')} was Found.`,
+            Details: recipes
+          });
+        }).catch(error => response.status(400).send({
+          fatal: 'An error occured while trying to retrieving all recipe.',
+          Error: error
+        }));
+    }
   }
   /**
  *
@@ -230,16 +156,21 @@ class HandleRecipeRequest {
  * @memberof HandleRecipeRequest
  */
   static getSortUpVote(request, response) {
-    return Recipe.findAll({
-      order: [
-        ['upvote', 'DESC']
-      ]
-    }).then((recipes) => {
-
-    }).catch(error => response.status(400).send({
-      fatal: 'An error occured while trying to retrieving all recipe.',
-      Error: error
-    }));
+    return Recipe.findAll({ limit: 5, order: [['upvote', 'DESC']] })
+      .then((recipes) => {
+        if (recipes.length <= 0) {
+          response.status(200).send({
+            message: 'No Recipe Found.'
+          });
+        }
+        response.status(200).send({
+          message: `${recipes.length} ${(recipes.length === 1 ? 'recipe' : 'recipes')} was found.`,
+          Recipes: recipes
+        });
+      }).catch(error => response.status(400).send({
+        fatal: 'An error occured while trying to retrieving all recipe.',
+        Error: error
+      }));
   }
 }// ends the class
 export default HandleRecipeRequest;

@@ -4,6 +4,7 @@ import HandleUserRequest from '../controllers/user';
 import HandleRecipeRequest from '../controllers/recipe';
 import HandleReviewRequest from '../controllers/review';
 import HandleFavoriteRequest from '../controllers/favorite';
+import HandleVoteRequest from '../controllers/vote';
 
 import UserIdBodyValidator from '../controllers/helpers/userReqParam'; // isAuthenticatedParams
 import isAuthenticatedBody from '../controllers/helpers/userReqBody';
@@ -40,6 +41,10 @@ export default (app) => {
   // An API route that allows an authenticated user post a review for a recipe
   // POST : /api/recipes/<recipeId>/reviews
   app.post('/api/v1/recipes/:recipeId/reviews', RecipeParamsValidator.validateRecipeId, isAuthenticatedBody.authentcatedUser, HandleReviewRequest.addReview);
+
+  // An API route that allows an authenticated user to get all his/her favorite reci
+  // GET : /api/users/<userId>/recipes
+  app.post('/api/recipes/:recipeId/votes', UserIdBodyValidator.authentcatedUser, HandleVoteRequest.vote);
 
   // An API route that allows an authenticated user to get all his/her favorite recipes
   // GET : /api/users/<userId>/recipes
