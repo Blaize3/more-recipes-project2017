@@ -6,6 +6,7 @@ services:
 before_script:
   - psql -c 'create database more_recipes_test;' -U postgres 
 install:
+  - npm install cross-env
   - npm install sequelize
   - npm install sequelize-cli
   - npm install pg
