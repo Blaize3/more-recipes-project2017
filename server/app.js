@@ -1,3 +1,4 @@
+import http from 'http';
 import express from 'express';
 import logger from 'morgan';
 import bodyParser from 'body-parser';
@@ -24,5 +25,11 @@ router(app);
 app.get('*', (request, response) => response.status(200).send({
   message: 'Welcome to more-recipes...'
 }));
+
+const port = parseInt(process.env.PORT, 10) || 8080;
+app.set('port', port);
+
+const server = http.createServer(app);
+server.listen(port);
 
 export default app;

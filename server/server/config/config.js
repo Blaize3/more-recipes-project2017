@@ -1,0 +1,21 @@
+{
+    development: {
+        username: "",
+        password: null,
+        database: "more-recipes-dev",
+        host: "127.0.0.1",
+        port: 5432,
+        dialect: "postgres"
+    },
+    test: {
+        username: "",
+        password: null,
+        database: "more_recipes_test",
+        host: "127.0.0.1",
+        port: 5432,
+        dialect: "postgres"
+    },
+    production: {
+        use_env_variable: ""
+    }
+}
