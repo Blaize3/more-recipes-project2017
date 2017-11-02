@@ -4,13 +4,15 @@
   "description": "Andela cycle XXVIII project",
   "main": "./server/src/app.js",
   "scripts": {
-    "build": "babel --preset es2015 ./server/bin -d ./server/dist/bin",
-    "build:app": "babel --preset es2015 ./server/ -d ./server/dist/",
+    "build": "node ./node_modules/babel-cli/bin/babel.js --preset es2015 ./server -d ./build",
+    "heroku-postbuild": "npm run build && npm run migrate",
     "execute:server": "nodemon ./server/dist/bin/www.js",
-    "start:dev": "nodemon --exec ./node_modules/.bin/babel-node ./server/bin/www.js",
+    "start:dev": "nodemon --exec ./node_modules/.bin/babel-node ./server/app",
+    "start": "node ./build/app",
     "test": "npm run reset:db && npm run migrate:test && npm run seed:test && nyc mocha --require babel-polyfill --compilers js:babel-register ./server/test/test.js",
     "coverage": "nyc --all npm test && nyc report --reporter=html --reporter=text-summary",
     "seed:test": "./node_modules/.bin/cross-env NODE_ENV=test sequelize db:seed:all",
+    "migrate": "./node_modules/.bin/sequelize db:migrate",
     "migrate:test": "./node_modules/.bin/cross-env NODE_ENV=test sequelize db:migrate",
     "reset:db": "./node_modules/.bin/cross-env NODE_ENV=test node ./server/test/resetHelper"
   },
