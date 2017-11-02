@@ -7,16 +7,49 @@ import Recipes from './recipe';
 
 describe('Testing API endpoint', () => {
   describe('Handling valid cases', () => {
+    it('Sign up a User', (done) => {
+      const user = {
+        email: 'grant@gmail.com',
+        username: 'grant99',
+        password: 'grant',
+        firstname: 'Grant',
+        lastname: 'Nwaigwe'
+      };
+      request(app)
+        .post('//api/v1/users/signup')
+        .send(user)
+        .expect(200, done())
+        .end((response) => {
+        // expect(response.body).to.be.a('object');
+          expect(response.body.message).to.equal('acount was created successfully');
+        });
+    });
+
+    it('Sign in a User', (done) => {
+      const user = {
+        email: 'akugbeode@yahooo.com',
+        password: 'oghogho@1'
+      };
+      request(app)
+        .post('/api/v1/users/signin')
+        .send(user)
+        .expect(200, done())
+        .end((response) => {
+        // expect(response.body).to.be.a('object');
+          expect(response.body.message).to.equal('Access granted');
+        });
+    });
+
+
     it('List all Recipes', (done) => {
       request(app)
         .get('/api/v1/recipes')
         .set('Accept', 'application/json')
         .expect('Content-Type', /json/)
-        .expect(200)
+        .expect(200, done())
         .then((response) => {
           expect(response.body).to.be.a('array');
           expect(response.body).to.deep.equal(Recipes);
-          done();
         });
     });
 
@@ -35,11 +68,10 @@ describe('Testing API endpoint', () => {
       request(app)
         .post('/api/v1/recipes')
         .send(recipe)
-        .expect(200)
+        .expect(200, done())
         .end((request, response) => {
-          expect(response.body).to.be.a('object');
+        // expect(response.body).to.be.a('object');
           expect(response.body.message).to.equal('Recipe was added successfully');
-          done();
         });
     });
 
@@ -47,16 +79,15 @@ describe('Testing API endpoint', () => {
       const review = {
         recipeId: 1,
         userId: 1,
-        comment: "This is a comment"
+        comment: 'This is a comment'
       };
       request(app)
         .post('/api/v1/recipes/1/reviews')
         .send(review)
-        .expect(200)
-        .end((request, response) => {
+        .expect(200, done())
+        .end((response) => {
           expect(response.body).to.be.a('object');
           expect(response.body.message).to.equal('Review was added to Recipe successfully');
-          done();
         });
     });
 
@@ -65,35 +96,21 @@ describe('Testing API endpoint', () => {
       const review = {
         recipeId: 1,
         userId: 1,
-        comment: "This is another comment"
+        comment: 'This is another comment'
       };
       request(app)
         .post('/api/v1/recipes/t/reviews')
         .send(review)
-        .expect(401)
+        .expect(401, done())
         .end((request, response) => {
           expect(response.body.message).to.equal('Invalid Recipe Id: Id must be a number');
-          done();
         });
     });
 
-    // ////////////////////////////////////////
-    // chai.request(server)
-    //     .delete('/book/' + book.id)
-    //     .end((err, res) => {
-    //         res.should.have.status(200);
-    //         res.body.should.be.a('object');
-    //         res.body.should.have.property('message').eql('Book successfully deleted!');
-    //         res.body.result.should.have.property('ok').eql(1);
-    //         res.body.result.should.have.property('n').eql(1);
-    //         done();
-    //     });
-
-    // ////////////////////////////////////
     it('Delete a recipe', (done) => {
       request(app)
-        .delete('/api/v1/recipes/:recipeId')
-        .end((request, response) => {
+        .delete('/api/v1/recipes/1')
+        .end((response) => {
           // expect(response.body).to.be.a('array');
           expect(response.body.message).to.equal('Recipe was deleted successfully');
           done();
