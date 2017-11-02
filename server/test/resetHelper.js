@@ -1,16 +1,18 @@
-import models from '../server/models';
+/* eslint-disable */
 
-const ResetHelper = {
-  init() {
-    console.log('Resetting the Database....Please wait...');
-    models.sequelize.sync({
-      force: true
-    })
-      .then(() => {
-        console.log('Database reset completed');
-        process.exit(0);
-      });
-  }
-};
+const models = require('../server/models');
 
-export default ResetHelper.init();
+ResetHelper = {
+    init() {
+        console.log('Resetting the Database....Please wait...');
+        models.sequelize.sync({
+                force: true
+            })
+            .then(() => {
+                console.log('Database reset completed');
+                process.exit(0)
+            });
+    }
+}
+
+module.exports = ResetHelper.init();
