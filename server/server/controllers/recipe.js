@@ -121,9 +121,10 @@ class HandleRecipeRequest {
               message: 'No Recipe Found.'
             });
           }
-          response.status(200).send({
-            message: `${recipes.length} ${(recipes.length === 1 ? 'recipe' : 'recipes')} was found.`,
-            Recipes: recipes
+          //  message: `${recipes.length} ${(recipes.length === 1 ? 'recipe' : 'recipes')} was found.`,
+          //  Recipes:
+          return response.status(200).send({
+            recipes
           });
         }).catch(error => response.status(400).send({
           fatal: 'An error occured while trying to retrieving all recipe.',
