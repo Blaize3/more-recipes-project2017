@@ -1,31 +1,25 @@
 {
-    development: {
-        username: "postgres",
-        password: "null",
-        database: "more-recipes-dev",
-        host: "127.0.0.1",
-        port: 5432,
-        dialect: "postgres"
+    "development": {
+        "username": "",
+        "password": null,
+        "database": "more-recipes-dev",
+        "host": "127.0.0.1",
+        "port": 5432,
+        "dialect": "postgres"
     },
-    test: {
-        username: "postgres",
-        password: "root",
-        database: "more_recipes_test",
-        host: "127.0.0.1",
-        port: 5432,
-        dialect: "postgres"
+    "test": {
+        "username": "Ode Akugbe",
+        "password": null,
+        "database": "more_recipes_test",
+        "host": "127.0.0.1",
+        "port": 5432,
+        "dialect": "postgres"
     },
-    production: {
-        username: "uidmrioqvyqtje",
-        password: "992fec8207255ec44b9700fce6d8a6fe0615f03f9a51f6b1aade03758dad5183"
-        database: "db7qk30r8i83be",
-        host: "ec2-54-235-150-134.compute-1.amazonaws.com" ,
-        dialect: "postgres"'
+    "production": {
+        "username": "uidmrioqvyqtje",
+        "password": "992fec8207255ec44b9700fce6d8a6fe0615f03f9a51f6b1aade03758dad5183",
+        "database": "db7qk30r8i83be",
+        "host": "ec2-54-235-150-134.compute-1.amazonaws.com",
+        "dialect": "postgres"
     }
 }
-
-
-
-
-
-//postgres://uidmrioqvyqtje:992fec8207255ec44b9700fce6d8a6fe0615f03f9a51f6b1aade03758dad5183@ec2-54-235-150-134.compute-1.amazonaws.com:5432/db7qk30r8i83be
