@@ -17,16 +17,17 @@ class HandleReviewRequest {
   static addReview(request, response) {
     return Review.create({
       recipeId: request.params.recipeId,
-      userId: request.body.userId,
+      userId: request.decoded.userID,
       comment: request.body.comment
     }).then((review) => {
       response.status(200).send({
+        status: '200 OK',
         message: 'Review was added to Recipe successfully',
-        Detail: review
+        data: review
       });
-    }).catch(error => response.status(200).send({
-      fatal: 'An error occured while trying to adding a review.',
-      Error: error
+    }).catch(() => response.status(500).send({
+      status: '500 Server Error',
+      message: 'An error occured while trying to adding a review.'
     }));
   }
 }

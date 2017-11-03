@@ -27,7 +27,8 @@ class HandleUserRequest {
         // 0000000000000000000000000000000000000000000
         if (err) {
           response.status(400).send({
-            Error: 'An error occurred'
+            status: '400 Bad Request',
+            message: 'An error occured while trying to hash user password.'
           });
         }
         return User.create({
@@ -38,12 +39,13 @@ class HandleUserRequest {
           lastname: request.body.lastname
         }).then((user) => {
           response.status(200).send({
+            status: '200 OK',
             message: 'acount was created successfully',
-            Detail: user
+            data: user
           });
-        }).catch(error => response.status(400).send({
-          fatal: 'An error occured while trying to create user account.',
-          Error: error
+        }).catch(() => response.status(500).send({
+          status: '500 Server Error',
+          message: 'An error occured while trying to create user account.'
         }));
 
         // 00000000000000000000000000000000000000000
@@ -81,23 +83,30 @@ class HandleUserRequest {
       // Load hash from your password DB.
       bcrypt.compare(request.body.password, hash, (err, res) => {
         if (err) {
-          response.status(400).send({ error: 'An error occured' });
+          response.status(400).send({
+            status: '400 Bad Request',
+            message: 'An error occured while trying to unhash user password.'
+          });
         } else if (res) {
           const payload = { userID: user.id, email: user.email };
           const token = generator.generateToken(payload);
           // jwt.sign(payload, config.secret);
           response.status(200).send({
+            status: '200 OK',
             message: 'Access granted',
-            Details: user,
+            data: user,
             token
           });
         } else {
-          response.status(200).send({ message: 'invalid Password' });
+          response.status(401).send({
+            status: '401 Unauthorized',
+            message: 'invalid Password'
+          });
         }
       });
-    }).catch(error => response.status(400).send({
-      fatal: 'An error occured while trying to sign in a user.',
-      Error: error
+    }).catch(() => response.status(500).send({
+      status: '500 Server Error',
+      message: 'An error occured while trying to sign in a user.'
     }));
   }
 }

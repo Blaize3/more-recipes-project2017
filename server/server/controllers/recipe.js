@@ -21,7 +21,7 @@ class HandleRecipeRequest {
    */
   static addRecipe(request, response) {
     return Recipe.create({
-      userId: request.body.userId,
+      userId: request.decoded.userID,
       name: request.body.name,
       origin: request.body.origin,
       description: request.body.description,
@@ -32,12 +32,13 @@ class HandleRecipeRequest {
       downVoteCount: 0
     }).then((recipe) => {
       response.status(200).send({
+        status: '200 OK',
         message: 'Recipe was added successfully',
-        Details: recipe
+        data: recipe
       });
-    }).catch(error => response.status(400).send({
-      fatal: 'An error occured while trying to create a recipe.',
-      Error: error
+    }).catch(() => response.status(500).send({
+      status: '500 Server Error',
+      message: 'An error occured while trying to create a recipe.'
     }));
   }
   /**
@@ -51,7 +52,7 @@ class HandleRecipeRequest {
  */
   static modifyRecipe(request, response) {
     const updateObject = {
-      userId: request.body.userId,
+      userId: request.decoded.userID,
       name: request.body.name,
       origin: request.body.origin,
       description: request.body.description,
@@ -68,12 +69,13 @@ class HandleRecipeRequest {
       }
     }).then((recipe) => {
       response.status(200).send({
+        status: '200 OK',
         message: 'update was successful',
-        Detail: recipe
+        data: recipe
       });
-    }).catch(error => response.status(400).send({
-      fatal: 'An error occured while trying to modify recipe information.',
-      Error: error
+    }).catch(() => response.status(500).send({
+      status: '500 Server Errorr',
+      message: 'An error occured while trying to modify recipe information.'
     }));
   }
   /**
@@ -88,18 +90,20 @@ class HandleRecipeRequest {
     Recipe.findById(request.params.recipeId)
       .then((recipe) => {
         if (!recipe) {
-          return response.status(400).send({
+          return response.status(404).send({
+            status: '404 Not Found',
             message: 'Recipe Not Found'
           });
         }
         return recipe
           .destroy()
           .then(() => response.status(200).send({
+            status: '204 OK No Content',
             message: 'Recipe was deleted successfully'
           }))
-          .catch(error => response.status(400).send({
-            fatal: 'An error occured while trying to delete recipe.',
-            Error: error
+          .catch(() => response.status(500).send({
+            status: '500 Server Error',
+            message: 'An error occured while trying to delete recipe.'
           }));
       });
   }
@@ -117,61 +121,41 @@ class HandleRecipeRequest {
       Recipe.findAll({ limit: 5, order: [['upvote', 'DESC']] })
         .then((recipes) => {
           if (recipes.length <= 0) {
-            response.status(200).send({
-              message: 'No Recipe Found.'
+            response.status(404).send({
+              status: '404 Not Found',
+              message: 'Recipe Not Found'
             });
           }
           //  message: `${recipes.length} ${(recipes.length === 1 ? 'recipe' : 'recipes')} was found.`,
           //  Recipes:
           return response.status(200).send({
-            recipes
+            status: '200 OK',
+            message: `${recipes.length} ${(recipes.length === 1 ? 'recipe' : 'recipes')} was found.`,
+            data: recipes
           });
-        }).catch(error => response.status(400).send({
-          fatal: 'An error occured while trying to retrieving all recipe.',
-          Error: error
+        }).catch(() => response.status(500).send({
+          status: '500 Server Error',
+          message: 'An error occured while trying to retrieving all sorted recipe.'
         }));
     } else {
       Recipe.findAll()
         .then((recipes) => {
           if (recipes.length <= 0) {
-            response.status(200).send({
-              message: 'No Recipe Found',
+            response.status(404).send({
+              status: '404 Not Found',
+              message: 'Recipe Not Found'
             });
           }
           response.status(200).send({
-            message: `${recipes.length} ${(recipes.length === 1 ? 'Recipe' : 'Recipes')} was Found.`,
-            Details: recipes
+            status: '200 OK',
+            message: `${recipes.length} ${(recipes.length === 1 ? 'recipe' : 'recipes')} was found.`,
+            data: recipes
           });
-        }).catch(error => response.status(400).send({
-          fatal: 'An error occured while trying to retrieving all recipe.',
-          Error: error
+        }).catch(() => response.status(500).send({
+          status: '500 Server Error',
+          message: 'An error occured while trying to retrieving all recipe.'
         }));
     }
-  }
-  /**
- *
- *
- * @param {any} request
- * @param {any} response
- * @returns {object} The identifier for ...
- * @memberof HandleRecipeRequest
- */
-  static getSortUpVote(request, response) {
-    return Recipe.findAll({ limit: 5, order: [['upvote', 'DESC']] })
-      .then((recipes) => {
-        if (recipes.length <= 0) {
-          response.status(200).send({
-            message: 'No Recipe Found.'
-          });
-        }
-        response.status(200).send({
-          message: `${recipes.length} ${(recipes.length === 1 ? 'recipe' : 'recipes')} was found.`,
-          Recipes: recipes
-        });
-      }).catch(error => response.status(400).send({
-        fatal: 'An error occured while trying to retrieving all recipe.',
-        Error: error
-      }));
   }
 }// ends the class
 export default HandleRecipeRequest;
